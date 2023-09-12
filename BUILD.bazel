@@ -6690,6 +6690,19 @@ xnnpack_cc_library(
 )
 
 xnnpack_cc_library(
+    name = "fp32_mobilenet_v1_jit",
+    srcs = ["models/fp32-mobilenet-v1-jit.cc"],
+    hdrs = ["src/xnnpack/models.h"],
+    copts = xnnpack_std_cxxopts(),
+    deps = [
+        ":XNNPACK",
+        ":aligned_allocator",
+        ":cache",
+        "@pthreadpool",
+    ],
+)
+
+xnnpack_cc_library(
     name = "fp16_sparse_mobilenet_v1",
     srcs = ["models/fp16-sparse-mobilenet-v1.cc"],
     hdrs = ["src/xnnpack/models.h"],
@@ -6807,6 +6820,19 @@ xnnpack_cc_library(
 )
 
 xnnpack_cc_library(
+    name = "qu8_mobilenet_v3_small",
+    srcs = ["models/qu8-mobilenet-v3-small.cc"],
+    hdrs = ["src/xnnpack/models.h"],
+    copts = xnnpack_std_cxxopts(),
+    deps = [
+        ":XNNPACK",
+        ":aligned_allocator",
+        ":cache",
+        "@pthreadpool",
+    ],
+)
+
+xnnpack_cc_library(
     name = "fp16_mobilenet_v2",
     srcs = ["models/fp16-mobilenet-v2.cc"],
     hdrs = ["src/xnnpack/models.h"],
@@ -6823,6 +6849,19 @@ xnnpack_cc_library(
 xnnpack_cc_library(
     name = "fp32_mobilenet_v2",
     srcs = ["models/fp32-mobilenet-v2.cc"],
+    hdrs = ["src/xnnpack/models.h"],
+    copts = xnnpack_std_cxxopts(),
+    deps = [
+        ":XNNPACK",
+        ":aligned_allocator",
+        ":cache",
+        "@pthreadpool",
+    ],
+)
+
+xnnpack_cc_library(
+    name = "fp32_mobilenet_v2_jit",
+    srcs = ["models/fp32-mobilenet-v2-jit.cc"],
     hdrs = ["src/xnnpack/models.h"],
     copts = xnnpack_std_cxxopts(),
     deps = [
@@ -6876,6 +6915,19 @@ xnnpack_cc_library(
 xnnpack_cc_library(
     name = "fp32_mobilenet_v3_large",
     srcs = ["models/fp32-mobilenet-v3-large.cc"],
+    hdrs = ["src/xnnpack/models.h"],
+    copts = xnnpack_std_cxxopts(),
+    deps = [
+        ":XNNPACK",
+        ":aligned_allocator",
+        ":cache",
+        "@pthreadpool",
+    ],
+)
+
+xnnpack_cc_library(
+    name = "fp32_mobilenet_v3_large_jit",
+    srcs = ["models/fp32-mobilenet-v3-large-jit.cc"],
     hdrs = ["src/xnnpack/models.h"],
     copts = xnnpack_std_cxxopts(),
     deps = [
@@ -6954,6 +7006,19 @@ xnnpack_cc_library(
 )
 
 xnnpack_cc_library(
+    name = "fp32_mobilenet_v3_small_jit",
+    srcs = ["models/fp32-mobilenet-v3-small-jit.cc"],
+    hdrs = ["src/xnnpack/models.h"],
+    copts = xnnpack_std_cxxopts(),
+    deps = [
+        ":XNNPACK",
+        ":aligned_allocator",
+        ":cache",
+        "@pthreadpool",
+    ],
+)
+
+xnnpack_cc_library(
     name = "fp16_sparse_mobilenet_v3_small",
     srcs = ["models/fp16-sparse-mobilenet-v3-small.cc"],
     hdrs = ["src/xnnpack/models.h"],
@@ -7018,9 +7083,13 @@ xnnpack_benchmark(
     deps = MICROKERNEL_BENCHMARK_DEPS + [
         ":XNNPACK",
         ":fp32_mobilenet_v1",
+        ":fp32_mobilenet_v1_jit",
         ":fp32_mobilenet_v2",
+        ":fp32_mobilenet_v2_jit",
         ":fp32_mobilenet_v3_large",
+        ":fp32_mobilenet_v3_large_jit",
         ":fp32_mobilenet_v3_small",
+        ":fp32_mobilenet_v3_small_jit",
     ],
 )
 
@@ -7033,9 +7102,13 @@ xnnpack_benchmark(
     deps = MICROKERNEL_BENCHMARK_DEPS + [
         ":XNNPACK",
         ":fp32_mobilenet_v1",
+        ":fp32_mobilenet_v1_jit",
         ":fp32_mobilenet_v2",
+        ":fp32_mobilenet_v2_jit",
         ":fp32_mobilenet_v3_large",
+        ":fp32_mobilenet_v3_large_jit",
         ":fp32_mobilenet_v3_small",
+        ":fp32_mobilenet_v3_small_jit",
     ],
 )
 
@@ -7076,6 +7149,7 @@ xnnpack_benchmark(
         ":qu8_mobilenet_v1",
         ":qu8_mobilenet_v2",
         ":qu8_mobilenet_v3_large",
+        ":qu8_mobilenet_v3_small",
     ],
 )
 
@@ -7090,6 +7164,7 @@ xnnpack_benchmark(
         ":qu8_mobilenet_v1",
         ":qu8_mobilenet_v2",
         ":qu8_mobilenet_v3_large",
+        ":qu8_mobilenet_v3_small",
     ],
 )
 
@@ -7109,10 +7184,14 @@ xnnpack_benchmark(
         ":fp16_sparse_mobilenet_v3_large",
         ":fp16_sparse_mobilenet_v3_small",
         ":fp32_mobilenet_v1",
+        ":fp32_mobilenet_v1_jit",
         ":fp32_mobilenet_v2",
+        ":fp32_mobilenet_v2_jit",
         ":fp32_mobilenet_v3_large",
+        ":fp32_mobilenet_v3_large_jit",
         ":fp32_mobilenet_v3_small",
         ":fp32_mobilenet_v3_small_fused",
+        ":fp32_mobilenet_v3_small_jit",
         ":fp32_sparse_mobilenet_v1",
         ":fp32_sparse_mobilenet_v2",
         ":fp32_sparse_mobilenet_v3_large",
@@ -7124,6 +7203,7 @@ xnnpack_benchmark(
         ":qu8_mobilenet_v1",
         ":qu8_mobilenet_v2",
         ":qu8_mobilenet_v3_large",
+        ":qu8_mobilenet_v3_small",
         "@pthreadpool",
     ],
 )

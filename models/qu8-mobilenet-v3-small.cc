@@ -2,6 +2,8 @@
 //
 // This source code is licensed under the BSD-style license found in the
 // LICENSE file in the root directory of this source tree.
+//
+// Auto-generated file. Do not edit!
 
 #include <xnnpack.h>
 
@@ -12,257 +14,260 @@
 #include <limits>
 #include <random>
 
+#include <xnnpack/cache.h>
 #include <xnnpack/common.h>
 #include <xnnpack/models.h>
 
 namespace models {
 
 ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
-  alignas(16) static std::array<uint8_t, 150528> v0;
-  alignas(16) static std::array<uint8_t, 200704> v1;
-  alignas(16) static std::array<uint8_t, 200704> v2;
-  alignas(16) static std::array<uint8_t, 50176> v3;
-  alignas(16) static std::array<uint8_t, 16> v4;
-  alignas(16) static std::array<uint8_t, 8> v5;
-  alignas(16) static std::array<uint8_t, 16> v6;
-  alignas(16) static std::array<uint8_t, 16> v7;
-  alignas(16) static std::array<uint8_t, 16> v8;
-  alignas(16) static std::array<uint8_t, 50176> v9;
-  alignas(16) static std::array<uint8_t, 50176> v10;
-  alignas(16) static std::array<uint8_t, 225792> v11;
-  alignas(16) static std::array<uint8_t, 56448> v12;
-  alignas(16) static std::array<uint8_t, 18816> v13;
-  alignas(16) static std::array<uint8_t, 68992> v14;
-  alignas(16) static std::array<uint8_t, 68992> v15;
-  alignas(16) static std::array<uint8_t, 18816> v16;
-  alignas(16) static std::array<uint8_t, 18816> v17;
-  alignas(16) static std::array<uint8_t, 75264> v18;
-  alignas(16) static std::array<uint8_t, 75264> v19;
-  alignas(16) static std::array<uint8_t, 18816> v20;
-  alignas(16) static std::array<uint8_t, 18816> v21;
-  alignas(16) static std::array<uint8_t, 96> v22;
-  alignas(16) static std::array<uint8_t, 24> v23;
-  alignas(16) static std::array<uint8_t, 96> v24;
-  alignas(16) static std::array<uint8_t, 96> v25;
-  alignas(16) static std::array<uint8_t, 96> v26;
-  alignas(16) static std::array<uint8_t, 18816> v27;
-  alignas(16) static std::array<uint8_t, 7840> v28;
-  alignas(16) static std::array<uint8_t, 47040> v29;
-  alignas(16) static std::array<uint8_t, 47040> v30;
-  alignas(16) static std::array<uint8_t, 47040> v31;
-  alignas(16) static std::array<uint8_t, 47040> v32;
-  alignas(16) static std::array<uint8_t, 240> v33;
-  alignas(16) static std::array<uint8_t, 64> v34;
-  alignas(16) static std::array<uint8_t, 240> v35;
-  alignas(16) static std::array<uint8_t, 240> v36;
-  alignas(16) static std::array<uint8_t, 240> v37;
-  alignas(16) static std::array<uint8_t, 47040> v38;
-  alignas(16) static std::array<uint8_t, 7840> v39;
-  alignas(16) static std::array<uint8_t, 7840> v40;
-  alignas(16) static std::array<uint8_t, 47040> v41;
-  alignas(16) static std::array<uint8_t, 47040> v42;
-  alignas(16) static std::array<uint8_t, 47040> v43;
-  alignas(16) static std::array<uint8_t, 47040> v44;
-  alignas(16) static std::array<uint8_t, 240> v45;
-  alignas(16) static std::array<uint8_t, 64> v46;
-  alignas(16) static std::array<uint8_t, 240> v47;
-  alignas(16) static std::array<uint8_t, 240> v48;
-  alignas(16) static std::array<uint8_t, 240> v49;
-  alignas(16) static std::array<uint8_t, 47040> v50;
-  alignas(16) static std::array<uint8_t, 7840> v51;
-  alignas(16) static std::array<uint8_t, 7840> v52;
-  alignas(16) static std::array<uint8_t, 23520> v53;
-  alignas(16) static std::array<uint8_t, 23520> v54;
-  alignas(16) static std::array<uint8_t, 23520> v55;
-  alignas(16) static std::array<uint8_t, 23520> v56;
-  alignas(16) static std::array<uint8_t, 120> v57;
-  alignas(16) static std::array<uint8_t, 32> v58;
-  alignas(16) static std::array<uint8_t, 120> v59;
-  alignas(16) static std::array<uint8_t, 120> v60;
-  alignas(16) static std::array<uint8_t, 120> v61;
-  alignas(16) static std::array<uint8_t, 23520> v62;
-  alignas(16) static std::array<uint8_t, 9408> v63;
-  alignas(16) static std::array<uint8_t, 28224> v64;
-  alignas(16) static std::array<uint8_t, 28224> v65;
-  alignas(16) static std::array<uint8_t, 28224> v66;
-  alignas(16) static std::array<uint8_t, 28224> v67;
-  alignas(16) static std::array<uint8_t, 144> v68;
-  alignas(16) static std::array<uint8_t, 40> v69;
-  alignas(16) static std::array<uint8_t, 144> v70;
-  alignas(16) static std::array<uint8_t, 144> v71;
-  alignas(16) static std::array<uint8_t, 144> v72;
-  alignas(16) static std::array<uint8_t, 28224> v73;
-  alignas(16) static std::array<uint8_t, 9408> v74;
-  alignas(16) static std::array<uint8_t, 9408> v75;
-  alignas(16) static std::array<uint8_t, 56448> v76;
-  alignas(16) static std::array<uint8_t, 56448> v77;
-  alignas(16) static std::array<uint8_t, 14112> v78;
-  alignas(16) static std::array<uint8_t, 14112> v79;
-  alignas(16) static std::array<uint8_t, 288> v80;
-  alignas(16) static std::array<uint8_t, 72> v81;
-  alignas(16) static std::array<uint8_t, 288> v82;
-  alignas(16) static std::array<uint8_t, 288> v83;
-  alignas(16) static std::array<uint8_t, 288> v84;
-  alignas(16) static std::array<uint8_t, 14112> v85;
-  alignas(16) static std::array<uint8_t, 4704> v86;
-  alignas(16) static std::array<uint8_t, 28224> v87;
-  alignas(16) static std::array<uint8_t, 28224> v88;
-  alignas(16) static std::array<uint8_t, 28224> v89;
-  alignas(16) static std::array<uint8_t, 28224> v90;
-  alignas(16) static std::array<uint8_t, 576> v91;
-  alignas(16) static std::array<uint8_t, 144> v92;
-  alignas(16) static std::array<uint8_t, 576> v93;
-  alignas(16) static std::array<uint8_t, 576> v94;
-  alignas(16) static std::array<uint8_t, 576> v95;
-  alignas(16) static std::array<uint8_t, 28224> v96;
-  alignas(16) static std::array<uint8_t, 4704> v97;
-  alignas(16) static std::array<uint8_t, 4704> v98;
-  alignas(16) static std::array<uint8_t, 28224> v99;
-  alignas(16) static std::array<uint8_t, 28224> v100;
-  alignas(16) static std::array<uint8_t, 28224> v101;
-  alignas(16) static std::array<uint8_t, 28224> v102;
-  alignas(16) static std::array<uint8_t, 576> v103;
-  alignas(16) static std::array<uint8_t, 144> v104;
-  alignas(16) static std::array<uint8_t, 576> v105;
-  alignas(16) static std::array<uint8_t, 576> v106;
-  alignas(16) static std::array<uint8_t, 576> v107;
-  alignas(16) static std::array<uint8_t, 28224> v108;
-  alignas(16) static std::array<uint8_t, 4704> v109;
-  alignas(16) static std::array<uint8_t, 4704> v110;
-  alignas(16) static std::array<uint8_t, 28224> v111;
-  alignas(16) static std::array<uint8_t, 28224> v112;
-  alignas(16) static std::array<uint8_t, 576> v113;
-  alignas(16) static std::array<uint8_t, 1024> v114;
-  alignas(16) static std::array<uint8_t, 1024> v115;
-  alignas(16) static std::array<uint8_t, 1024> v116;
-  alignas(16) static std::array<uint8_t, 1001> v117;
-  alignas(16) static std::array<uint8_t, 1001> v118;
-  alignas(16) static std::array<uint8_t, 432> w119;
-  alignas(16) static std::array<int32_t, 16> w120;
-  alignas(16) static std::array<uint8_t, 144> w121;
-  alignas(16) static std::array<int32_t, 16> w122;
-  alignas(16) static std::array<uint8_t, 128> w123;
-  alignas(16) static std::array<int32_t, 8> w124;
-  alignas(16) static std::array<uint8_t, 128> w125;
-  alignas(16) static std::array<int32_t, 16> w126;
-  alignas(16) static std::array<uint8_t, 1> w127;
-  alignas(16) static std::array<uint8_t, 1> w128;
-  alignas(16) static std::array<uint8_t, 256> w129;
-  alignas(16) static std::array<int32_t, 16> w130;
-  alignas(16) static std::array<uint8_t, 1152> w131;
-  alignas(16) static std::array<int32_t, 72> w132;
-  alignas(16) static std::array<uint8_t, 648> w133;
-  alignas(16) static std::array<int32_t, 72> w134;
-  alignas(16) static std::array<uint8_t, 1728> w135;
-  alignas(16) static std::array<int32_t, 24> w136;
-  alignas(16) static std::array<uint8_t, 2112> w137;
-  alignas(16) static std::array<int32_t, 88> w138;
-  alignas(16) static std::array<uint8_t, 792> w139;
-  alignas(16) static std::array<int32_t, 88> w140;
-  alignas(16) static std::array<uint8_t, 2112> w141;
-  alignas(16) static std::array<int32_t, 24> w142;
-  alignas(16) static std::array<uint8_t, 2304> w143;
-  alignas(16) static std::array<int32_t, 96> w144;
-  alignas(16) static std::array<uint8_t, 2400> w145;
-  alignas(16) static std::array<int32_t, 96> w146;
-  alignas(16) static std::array<uint8_t, 2304> w147;
-  alignas(16) static std::array<int32_t, 24> w148;
-  alignas(16) static std::array<uint8_t, 2304> w149;
-  alignas(16) static std::array<int32_t, 96> w150;
-  alignas(16) static std::array<uint8_t, 1> w151;
-  alignas(16) static std::array<uint8_t, 1> w152;
-  alignas(16) static std::array<uint8_t, 3840> w153;
-  alignas(16) static std::array<int32_t, 40> w154;
-  alignas(16) static std::array<uint8_t, 9600> w155;
-  alignas(16) static std::array<int32_t, 240> w156;
-  alignas(16) static std::array<uint8_t, 6000> w157;
-  alignas(16) static std::array<int32_t, 240> w158;
-  alignas(16) static std::array<uint8_t, 15360> w159;
-  alignas(16) static std::array<int32_t, 64> w160;
-  alignas(16) static std::array<uint8_t, 15360> w161;
-  alignas(16) static std::array<int32_t, 240> w162;
-  alignas(16) static std::array<uint8_t, 1> w163;
-  alignas(16) static std::array<uint8_t, 1> w164;
-  alignas(16) static std::array<uint8_t, 9600> w165;
-  alignas(16) static std::array<int32_t, 40> w166;
-  alignas(16) static std::array<uint8_t, 9600> w167;
-  alignas(16) static std::array<int32_t, 240> w168;
-  alignas(16) static std::array<uint8_t, 6000> w169;
-  alignas(16) static std::array<int32_t, 240> w170;
-  alignas(16) static std::array<uint8_t, 15360> w171;
-  alignas(16) static std::array<int32_t, 64> w172;
-  alignas(16) static std::array<uint8_t, 15360> w173;
-  alignas(16) static std::array<int32_t, 240> w174;
-  alignas(16) static std::array<uint8_t, 1> w175;
-  alignas(16) static std::array<uint8_t, 1> w176;
-  alignas(16) static std::array<uint8_t, 9600> w177;
-  alignas(16) static std::array<int32_t, 40> w178;
-  alignas(16) static std::array<uint8_t, 4800> w179;
-  alignas(16) static std::array<int32_t, 120> w180;
-  alignas(16) static std::array<uint8_t, 3000> w181;
-  alignas(16) static std::array<int32_t, 120> w182;
-  alignas(16) static std::array<uint8_t, 3840> w183;
-  alignas(16) static std::array<int32_t, 32> w184;
-  alignas(16) static std::array<uint8_t, 3840> w185;
-  alignas(16) static std::array<int32_t, 120> w186;
-  alignas(16) static std::array<uint8_t, 1> w187;
-  alignas(16) static std::array<uint8_t, 1> w188;
-  alignas(16) static std::array<uint8_t, 5760> w189;
-  alignas(16) static std::array<int32_t, 48> w190;
-  alignas(16) static std::array<uint8_t, 6912> w191;
-  alignas(16) static std::array<int32_t, 144> w192;
-  alignas(16) static std::array<uint8_t, 3600> w193;
-  alignas(16) static std::array<int32_t, 144> w194;
-  alignas(16) static std::array<uint8_t, 5760> w195;
-  alignas(16) static std::array<int32_t, 40> w196;
-  alignas(16) static std::array<uint8_t, 5760> w197;
-  alignas(16) static std::array<int32_t, 144> w198;
-  alignas(16) static std::array<uint8_t, 1> w199;
-  alignas(16) static std::array<uint8_t, 1> w200;
-  alignas(16) static std::array<uint8_t, 6912> w201;
-  alignas(16) static std::array<int32_t, 48> w202;
-  alignas(16) static std::array<uint8_t, 13824> w203;
-  alignas(16) static std::array<int32_t, 288> w204;
-  alignas(16) static std::array<uint8_t, 7200> w205;
-  alignas(16) static std::array<int32_t, 288> w206;
-  alignas(16) static std::array<uint8_t, 20736> w207;
-  alignas(16) static std::array<int32_t, 72> w208;
-  alignas(16) static std::array<uint8_t, 20736> w209;
-  alignas(16) static std::array<int32_t, 288> w210;
-  alignas(16) static std::array<uint8_t, 1> w211;
-  alignas(16) static std::array<uint8_t, 1> w212;
-  alignas(16) static std::array<uint8_t, 27648> w213;
-  alignas(16) static std::array<int32_t, 96> w214;
-  alignas(16) static std::array<uint8_t, 55296> w215;
-  alignas(16) static std::array<int32_t, 576> w216;
-  alignas(16) static std::array<uint8_t, 14400> w217;
-  alignas(16) static std::array<int32_t, 576> w218;
-  alignas(16) static std::array<uint8_t, 82944> w219;
-  alignas(16) static std::array<int32_t, 144> w220;
-  alignas(16) static std::array<uint8_t, 82944> w221;
-  alignas(16) static std::array<int32_t, 576> w222;
-  alignas(16) static std::array<uint8_t, 1> w223;
-  alignas(16) static std::array<uint8_t, 1> w224;
-  alignas(16) static std::array<uint8_t, 55296> w225;
-  alignas(16) static std::array<int32_t, 96> w226;
-  alignas(16) static std::array<uint8_t, 55296> w227;
-  alignas(16) static std::array<int32_t, 576> w228;
-  alignas(16) static std::array<uint8_t, 14400> w229;
-  alignas(16) static std::array<int32_t, 576> w230;
-  alignas(16) static std::array<uint8_t, 82944> w231;
-  alignas(16) static std::array<int32_t, 144> w232;
-  alignas(16) static std::array<uint8_t, 82944> w233;
-  alignas(16) static std::array<int32_t, 576> w234;
-  alignas(16) static std::array<uint8_t, 1> w235;
-  alignas(16) static std::array<uint8_t, 1> w236;
-  alignas(16) static std::array<uint8_t, 55296> w237;
-  alignas(16) static std::array<int32_t, 96> w238;
-  alignas(16) static std::array<uint8_t, 55296> w239;
-  alignas(16) static std::array<int32_t, 576> w240;
-  alignas(16) static std::array<uint8_t, 589824> w241;
-  alignas(16) static std::array<int32_t, 1024> w242;
-  alignas(16) static std::array<uint8_t, 1025024> w243;
-  alignas(16) static std::array<int32_t, 1001> w244;
+  alignas(16) static std::array<uint8_t, 150528 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v0;
+  alignas(16) static std::array<uint8_t, 200704 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v1;
+  alignas(16) static std::array<uint8_t, 200704 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v2;
+  alignas(16) static std::array<uint8_t, 50176 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v3;
+  alignas(16) static std::array<uint8_t, 16 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v4;
+  alignas(16) static std::array<uint8_t, 8 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v5;
+  alignas(16) static std::array<uint8_t, 16 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v6;
+  alignas(16) static std::array<uint8_t, 16 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v7;
+  alignas(16) static std::array<uint8_t, 16 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v8;
+  alignas(16) static std::array<uint8_t, 50176 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v9;
+  alignas(16) static std::array<uint8_t, 50176 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v10;
+  alignas(16) static std::array<uint8_t, 225792 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v11;
+  alignas(16) static std::array<uint8_t, 56448 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v12;
+  alignas(16) static std::array<uint8_t, 18816 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v13;
+  alignas(16) static std::array<uint8_t, 68992 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v14;
+  alignas(16) static std::array<uint8_t, 68992 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v15;
+  alignas(16) static std::array<uint8_t, 18816 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v16;
+  alignas(16) static std::array<uint8_t, 18816 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v17;
+  alignas(16) static std::array<uint8_t, 75264 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v18;
+  alignas(16) static std::array<uint8_t, 75264 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v19;
+  alignas(16) static std::array<uint8_t, 18816 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v20;
+  alignas(16) static std::array<uint8_t, 18816 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v21;
+  alignas(16) static std::array<uint8_t, 96 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v22;
+  alignas(16) static std::array<uint8_t, 24 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v23;
+  alignas(16) static std::array<uint8_t, 96 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v24;
+  alignas(16) static std::array<uint8_t, 96 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v25;
+  alignas(16) static std::array<uint8_t, 96 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v26;
+  alignas(16) static std::array<uint8_t, 18816 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v27;
+  alignas(16) static std::array<uint8_t, 7840 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v28;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v29;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v30;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v31;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v32;
+  alignas(16) static std::array<uint8_t, 240 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v33;
+  alignas(16) static std::array<uint8_t, 64 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v34;
+  alignas(16) static std::array<uint8_t, 240 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v35;
+  alignas(16) static std::array<uint8_t, 240 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v36;
+  alignas(16) static std::array<uint8_t, 240 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v37;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v38;
+  alignas(16) static std::array<uint8_t, 7840 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v39;
+  alignas(16) static std::array<uint8_t, 7840 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v40;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v41;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v42;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v43;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v44;
+  alignas(16) static std::array<uint8_t, 240 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v45;
+  alignas(16) static std::array<uint8_t, 64 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v46;
+  alignas(16) static std::array<uint8_t, 240 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v47;
+  alignas(16) static std::array<uint8_t, 240 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v48;
+  alignas(16) static std::array<uint8_t, 240 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v49;
+  alignas(16) static std::array<uint8_t, 47040 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v50;
+  alignas(16) static std::array<uint8_t, 7840 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v51;
+  alignas(16) static std::array<uint8_t, 7840 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v52;
+  alignas(16) static std::array<uint8_t, 23520 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v53;
+  alignas(16) static std::array<uint8_t, 23520 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v54;
+  alignas(16) static std::array<uint8_t, 23520 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v55;
+  alignas(16) static std::array<uint8_t, 23520 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v56;
+  alignas(16) static std::array<uint8_t, 120 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v57;
+  alignas(16) static std::array<uint8_t, 32 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v58;
+  alignas(16) static std::array<uint8_t, 120 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v59;
+  alignas(16) static std::array<uint8_t, 120 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v60;
+  alignas(16) static std::array<uint8_t, 120 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v61;
+  alignas(16) static std::array<uint8_t, 23520 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v62;
+  alignas(16) static std::array<uint8_t, 9408 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v63;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v64;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v65;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v66;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v67;
+  alignas(16) static std::array<uint8_t, 144 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v68;
+  alignas(16) static std::array<uint8_t, 40 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v69;
+  alignas(16) static std::array<uint8_t, 144 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v70;
+  alignas(16) static std::array<uint8_t, 144 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v71;
+  alignas(16) static std::array<uint8_t, 144 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v72;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v73;
+  alignas(16) static std::array<uint8_t, 9408 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v74;
+  alignas(16) static std::array<uint8_t, 9408 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v75;
+  alignas(16) static std::array<uint8_t, 56448 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v76;
+  alignas(16) static std::array<uint8_t, 56448 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v77;
+  alignas(16) static std::array<uint8_t, 14112 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v78;
+  alignas(16) static std::array<uint8_t, 14112 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v79;
+  alignas(16) static std::array<uint8_t, 288 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v80;
+  alignas(16) static std::array<uint8_t, 72 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v81;
+  alignas(16) static std::array<uint8_t, 288 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v82;
+  alignas(16) static std::array<uint8_t, 288 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v83;
+  alignas(16) static std::array<uint8_t, 288 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v84;
+  alignas(16) static std::array<uint8_t, 14112 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v85;
+  alignas(16) static std::array<uint8_t, 4704 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v86;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v87;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v88;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v89;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v90;
+  alignas(16) static std::array<uint8_t, 576 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v91;
+  alignas(16) static std::array<uint8_t, 144 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v92;
+  alignas(16) static std::array<uint8_t, 576 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v93;
+  alignas(16) static std::array<uint8_t, 576 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v94;
+  alignas(16) static std::array<uint8_t, 576 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v95;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v96;
+  alignas(16) static std::array<uint8_t, 4704 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v97;
+  alignas(16) static std::array<uint8_t, 4704 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v98;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v99;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v100;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v101;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v102;
+  alignas(16) static std::array<uint8_t, 576 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v103;
+  alignas(16) static std::array<uint8_t, 144 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v104;
+  alignas(16) static std::array<uint8_t, 576 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v105;
+  alignas(16) static std::array<uint8_t, 576 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v106;
+  alignas(16) static std::array<uint8_t, 576 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v107;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v108;
+  alignas(16) static std::array<uint8_t, 4704 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v109;
+  alignas(16) static std::array<uint8_t, 4704 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v110;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v111;
+  alignas(16) static std::array<uint8_t, 28224 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v112;
+  alignas(16) static std::array<uint8_t, 576 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v113;
+  alignas(16) static std::array<uint8_t, 1024 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v114;
+  alignas(16) static std::array<uint8_t, 1024 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v115;
+  alignas(16) static std::array<uint8_t, 1024 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v116;
+  alignas(16) static std::array<uint8_t, 1001 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v117;
+  alignas(16) static std::array<uint8_t, 1001 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v118;
+  alignas(16) static std::array<uint8_t, 1001 + XNN_EXTRA_BYTES / sizeof(uint8_t)> v119;
+  alignas(16) static std::array<uint8_t, 432 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w120;
+  alignas(16) static std::array<int32_t, 16 + XNN_EXTRA_BYTES / sizeof(int32_t)> w121;
+  alignas(16) static std::array<uint8_t, 144 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w122;
+  alignas(16) static std::array<int32_t, 16 + XNN_EXTRA_BYTES / sizeof(int32_t)> w123;
+  alignas(16) static std::array<uint8_t, 128 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w124;
+  alignas(16) static std::array<int32_t, 8 + XNN_EXTRA_BYTES / sizeof(int32_t)> w125;
+  alignas(16) static std::array<uint8_t, 128 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w126;
+  alignas(16) static std::array<int32_t, 16 + XNN_EXTRA_BYTES / sizeof(int32_t)> w127;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w128;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w129;
+  alignas(16) static std::array<uint8_t, 256 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w130;
+  alignas(16) static std::array<int32_t, 16 + XNN_EXTRA_BYTES / sizeof(int32_t)> w131;
+  alignas(16) static std::array<uint8_t, 1152 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w132;
+  alignas(16) static std::array<int32_t, 72 + XNN_EXTRA_BYTES / sizeof(int32_t)> w133;
+  alignas(16) static std::array<uint8_t, 648 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w134;
+  alignas(16) static std::array<int32_t, 72 + XNN_EXTRA_BYTES / sizeof(int32_t)> w135;
+  alignas(16) static std::array<uint8_t, 1728 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w136;
+  alignas(16) static std::array<int32_t, 24 + XNN_EXTRA_BYTES / sizeof(int32_t)> w137;
+  alignas(16) static std::array<uint8_t, 2112 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w138;
+  alignas(16) static std::array<int32_t, 88 + XNN_EXTRA_BYTES / sizeof(int32_t)> w139;
+  alignas(16) static std::array<uint8_t, 792 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w140;
+  alignas(16) static std::array<int32_t, 88 + XNN_EXTRA_BYTES / sizeof(int32_t)> w141;
+  alignas(16) static std::array<uint8_t, 2112 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w142;
+  alignas(16) static std::array<int32_t, 24 + XNN_EXTRA_BYTES / sizeof(int32_t)> w143;
+  alignas(16) static std::array<uint8_t, 2304 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w144;
+  alignas(16) static std::array<int32_t, 96 + XNN_EXTRA_BYTES / sizeof(int32_t)> w145;
+  alignas(16) static std::array<uint8_t, 2400 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w146;
+  alignas(16) static std::array<int32_t, 96 + XNN_EXTRA_BYTES / sizeof(int32_t)> w147;
+  alignas(16) static std::array<uint8_t, 2304 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w148;
+  alignas(16) static std::array<int32_t, 24 + XNN_EXTRA_BYTES / sizeof(int32_t)> w149;
+  alignas(16) static std::array<uint8_t, 2304 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w150;
+  alignas(16) static std::array<int32_t, 96 + XNN_EXTRA_BYTES / sizeof(int32_t)> w151;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w152;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w153;
+  alignas(16) static std::array<uint8_t, 3840 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w154;
+  alignas(16) static std::array<int32_t, 40 + XNN_EXTRA_BYTES / sizeof(int32_t)> w155;
+  alignas(16) static std::array<uint8_t, 9600 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w156;
+  alignas(16) static std::array<int32_t, 240 + XNN_EXTRA_BYTES / sizeof(int32_t)> w157;
+  alignas(16) static std::array<uint8_t, 6000 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w158;
+  alignas(16) static std::array<int32_t, 240 + XNN_EXTRA_BYTES / sizeof(int32_t)> w159;
+  alignas(16) static std::array<uint8_t, 15360 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w160;
+  alignas(16) static std::array<int32_t, 64 + XNN_EXTRA_BYTES / sizeof(int32_t)> w161;
+  alignas(16) static std::array<uint8_t, 15360 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w162;
+  alignas(16) static std::array<int32_t, 240 + XNN_EXTRA_BYTES / sizeof(int32_t)> w163;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w164;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w165;
+  alignas(16) static std::array<uint8_t, 9600 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w166;
+  alignas(16) static std::array<int32_t, 40 + XNN_EXTRA_BYTES / sizeof(int32_t)> w167;
+  alignas(16) static std::array<uint8_t, 9600 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w168;
+  alignas(16) static std::array<int32_t, 240 + XNN_EXTRA_BYTES / sizeof(int32_t)> w169;
+  alignas(16) static std::array<uint8_t, 6000 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w170;
+  alignas(16) static std::array<int32_t, 240 + XNN_EXTRA_BYTES / sizeof(int32_t)> w171;
+  alignas(16) static std::array<uint8_t, 15360 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w172;
+  alignas(16) static std::array<int32_t, 64 + XNN_EXTRA_BYTES / sizeof(int32_t)> w173;
+  alignas(16) static std::array<uint8_t, 15360 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w174;
+  alignas(16) static std::array<int32_t, 240 + XNN_EXTRA_BYTES / sizeof(int32_t)> w175;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w176;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w177;
+  alignas(16) static std::array<uint8_t, 9600 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w178;
+  alignas(16) static std::array<int32_t, 40 + XNN_EXTRA_BYTES / sizeof(int32_t)> w179;
+  alignas(16) static std::array<uint8_t, 4800 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w180;
+  alignas(16) static std::array<int32_t, 120 + XNN_EXTRA_BYTES / sizeof(int32_t)> w181;
+  alignas(16) static std::array<uint8_t, 3000 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w182;
+  alignas(16) static std::array<int32_t, 120 + XNN_EXTRA_BYTES / sizeof(int32_t)> w183;
+  alignas(16) static std::array<uint8_t, 3840 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w184;
+  alignas(16) static std::array<int32_t, 32 + XNN_EXTRA_BYTES / sizeof(int32_t)> w185;
+  alignas(16) static std::array<uint8_t, 3840 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w186;
+  alignas(16) static std::array<int32_t, 120 + XNN_EXTRA_BYTES / sizeof(int32_t)> w187;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w188;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w189;
+  alignas(16) static std::array<uint8_t, 5760 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w190;
+  alignas(16) static std::array<int32_t, 48 + XNN_EXTRA_BYTES / sizeof(int32_t)> w191;
+  alignas(16) static std::array<uint8_t, 6912 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w192;
+  alignas(16) static std::array<int32_t, 144 + XNN_EXTRA_BYTES / sizeof(int32_t)> w193;
+  alignas(16) static std::array<uint8_t, 3600 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w194;
+  alignas(16) static std::array<int32_t, 144 + XNN_EXTRA_BYTES / sizeof(int32_t)> w195;
+  alignas(16) static std::array<uint8_t, 5760 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w196;
+  alignas(16) static std::array<int32_t, 40 + XNN_EXTRA_BYTES / sizeof(int32_t)> w197;
+  alignas(16) static std::array<uint8_t, 5760 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w198;
+  alignas(16) static std::array<int32_t, 144 + XNN_EXTRA_BYTES / sizeof(int32_t)> w199;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w200;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w201;
+  alignas(16) static std::array<uint8_t, 6912 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w202;
+  alignas(16) static std::array<int32_t, 48 + XNN_EXTRA_BYTES / sizeof(int32_t)> w203;
+  alignas(16) static std::array<uint8_t, 13824 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w204;
+  alignas(16) static std::array<int32_t, 288 + XNN_EXTRA_BYTES / sizeof(int32_t)> w205;
+  alignas(16) static std::array<uint8_t, 7200 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w206;
+  alignas(16) static std::array<int32_t, 288 + XNN_EXTRA_BYTES / sizeof(int32_t)> w207;
+  alignas(16) static std::array<uint8_t, 20736 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w208;
+  alignas(16) static std::array<int32_t, 72 + XNN_EXTRA_BYTES / sizeof(int32_t)> w209;
+  alignas(16) static std::array<uint8_t, 20736 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w210;
+  alignas(16) static std::array<int32_t, 288 + XNN_EXTRA_BYTES / sizeof(int32_t)> w211;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w212;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w213;
+  alignas(16) static std::array<uint8_t, 27648 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w214;
+  alignas(16) static std::array<int32_t, 96 + XNN_EXTRA_BYTES / sizeof(int32_t)> w215;
+  alignas(16) static std::array<uint8_t, 55296 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w216;
+  alignas(16) static std::array<int32_t, 576 + XNN_EXTRA_BYTES / sizeof(int32_t)> w217;
+  alignas(16) static std::array<uint8_t, 14400 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w218;
+  alignas(16) static std::array<int32_t, 576 + XNN_EXTRA_BYTES / sizeof(int32_t)> w219;
+  alignas(16) static std::array<uint8_t, 82944 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w220;
+  alignas(16) static std::array<int32_t, 144 + XNN_EXTRA_BYTES / sizeof(int32_t)> w221;
+  alignas(16) static std::array<uint8_t, 82944 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w222;
+  alignas(16) static std::array<int32_t, 576 + XNN_EXTRA_BYTES / sizeof(int32_t)> w223;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w224;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w225;
+  alignas(16) static std::array<uint8_t, 55296 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w226;
+  alignas(16) static std::array<int32_t, 96 + XNN_EXTRA_BYTES / sizeof(int32_t)> w227;
+  alignas(16) static std::array<uint8_t, 55296 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w228;
+  alignas(16) static std::array<int32_t, 576 + XNN_EXTRA_BYTES / sizeof(int32_t)> w229;
+  alignas(16) static std::array<uint8_t, 14400 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w230;
+  alignas(16) static std::array<int32_t, 576 + XNN_EXTRA_BYTES / sizeof(int32_t)> w231;
+  alignas(16) static std::array<uint8_t, 82944 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w232;
+  alignas(16) static std::array<int32_t, 144 + XNN_EXTRA_BYTES / sizeof(int32_t)> w233;
+  alignas(16) static std::array<uint8_t, 82944 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w234;
+  alignas(16) static std::array<int32_t, 576 + XNN_EXTRA_BYTES / sizeof(int32_t)> w235;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w236;
+  alignas(16) static std::array<uint8_t, 1 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w237;
+  alignas(16) static std::array<uint8_t, 55296 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w238;
+  alignas(16) static std::array<int32_t, 96 + XNN_EXTRA_BYTES / sizeof(int32_t)> w239;
+  alignas(16) static std::array<uint8_t, 55296 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w240;
+  alignas(16) static std::array<int32_t, 576 + XNN_EXTRA_BYTES / sizeof(int32_t)> w241;
+  alignas(16) static std::array<uint8_t, 589824 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w242;
+  alignas(16) static std::array<int32_t, 1024 + XNN_EXTRA_BYTES / sizeof(int32_t)> w243;
+  alignas(16) static std::array<uint8_t, 1025024 + XNN_EXTRA_BYTES / sizeof(uint8_t)> w244;
+  alignas(16) static std::array<int32_t, 1001 + XNN_EXTRA_BYTES / sizeof(int32_t)> w245;
+
   std::random_device random_device;
   auto rng = std::mt19937(random_device());
   auto qu8rng = std::bind(std::uniform_int_distribution<int>(std::numeric_limits<uint8_t>::min(), std::numeric_limits<uint8_t>::max()), std::ref(rng));
@@ -386,160 +391,162 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
   std::generate(v116.begin(), v116.end(), std::ref(qu8rng));
   std::generate(v117.begin(), v117.end(), std::ref(qu8rng));
   std::generate(v118.begin(), v118.end(), std::ref(qu8rng));
-  std::generate(w119.begin(), w119.end(), std::ref(qu8rng));
-  std::generate(w120.begin(), w120.end(), std::ref(qs32rng));
-  std::generate(w121.begin(), w121.end(), std::ref(qu8rng));
-  std::generate(w122.begin(), w122.end(), std::ref(qs32rng));
-  std::generate(w123.begin(), w123.end(), std::ref(qu8rng));
-  std::generate(w124.begin(), w124.end(), std::ref(qs32rng));
-  std::generate(w125.begin(), w125.end(), std::ref(qu8rng));
-  std::generate(w126.begin(), w126.end(), std::ref(qs32rng));
-  std::generate(w127.begin(), w127.end(), std::ref(qu8rng));
+  std::generate(v119.begin(), v119.end(), std::ref(qu8rng));
+  std::generate(w120.begin(), w120.end(), std::ref(qu8rng));
+  std::generate(w121.begin(), w121.end(), std::ref(qs32rng));
+  std::generate(w122.begin(), w122.end(), std::ref(qu8rng));
+  std::generate(w123.begin(), w123.end(), std::ref(qs32rng));
+  std::generate(w124.begin(), w124.end(), std::ref(qu8rng));
+  std::generate(w125.begin(), w125.end(), std::ref(qs32rng));
+  std::generate(w126.begin(), w126.end(), std::ref(qu8rng));
+  std::generate(w127.begin(), w127.end(), std::ref(qs32rng));
   std::generate(w128.begin(), w128.end(), std::ref(qu8rng));
   std::generate(w129.begin(), w129.end(), std::ref(qu8rng));
-  std::generate(w130.begin(), w130.end(), std::ref(qs32rng));
-  std::generate(w131.begin(), w131.end(), std::ref(qu8rng));
-  std::generate(w132.begin(), w132.end(), std::ref(qs32rng));
-  std::generate(w133.begin(), w133.end(), std::ref(qu8rng));
-  std::generate(w134.begin(), w134.end(), std::ref(qs32rng));
-  std::generate(w135.begin(), w135.end(), std::ref(qu8rng));
-  std::generate(w136.begin(), w136.end(), std::ref(qs32rng));
-  std::generate(w137.begin(), w137.end(), std::ref(qu8rng));
-  std::generate(w138.begin(), w138.end(), std::ref(qs32rng));
-  std::generate(w139.begin(), w139.end(), std::ref(qu8rng));
-  std::generate(w140.begin(), w140.end(), std::ref(qs32rng));
-  std::generate(w141.begin(), w141.end(), std::ref(qu8rng));
-  std::generate(w142.begin(), w142.end(), std::ref(qs32rng));
-  std::generate(w143.begin(), w143.end(), std::ref(qu8rng));
-  std::generate(w144.begin(), w144.end(), std::ref(qs32rng));
-  std::generate(w145.begin(), w145.end(), std::ref(qu8rng));
-  std::generate(w146.begin(), w146.end(), std::ref(qs32rng));
-  std::generate(w147.begin(), w147.end(), std::ref(qu8rng));
-  std::generate(w148.begin(), w148.end(), std::ref(qs32rng));
-  std::generate(w149.begin(), w149.end(), std::ref(qu8rng));
-  std::generate(w150.begin(), w150.end(), std::ref(qs32rng));
-  std::generate(w151.begin(), w151.end(), std::ref(qu8rng));
+  std::generate(w130.begin(), w130.end(), std::ref(qu8rng));
+  std::generate(w131.begin(), w131.end(), std::ref(qs32rng));
+  std::generate(w132.begin(), w132.end(), std::ref(qu8rng));
+  std::generate(w133.begin(), w133.end(), std::ref(qs32rng));
+  std::generate(w134.begin(), w134.end(), std::ref(qu8rng));
+  std::generate(w135.begin(), w135.end(), std::ref(qs32rng));
+  std::generate(w136.begin(), w136.end(), std::ref(qu8rng));
+  std::generate(w137.begin(), w137.end(), std::ref(qs32rng));
+  std::generate(w138.begin(), w138.end(), std::ref(qu8rng));
+  std::generate(w139.begin(), w139.end(), std::ref(qs32rng));
+  std::generate(w140.begin(), w140.end(), std::ref(qu8rng));
+  std::generate(w141.begin(), w141.end(), std::ref(qs32rng));
+  std::generate(w142.begin(), w142.end(), std::ref(qu8rng));
+  std::generate(w143.begin(), w143.end(), std::ref(qs32rng));
+  std::generate(w144.begin(), w144.end(), std::ref(qu8rng));
+  std::generate(w145.begin(), w145.end(), std::ref(qs32rng));
+  std::generate(w146.begin(), w146.end(), std::ref(qu8rng));
+  std::generate(w147.begin(), w147.end(), std::ref(qs32rng));
+  std::generate(w148.begin(), w148.end(), std::ref(qu8rng));
+  std::generate(w149.begin(), w149.end(), std::ref(qs32rng));
+  std::generate(w150.begin(), w150.end(), std::ref(qu8rng));
+  std::generate(w151.begin(), w151.end(), std::ref(qs32rng));
   std::generate(w152.begin(), w152.end(), std::ref(qu8rng));
   std::generate(w153.begin(), w153.end(), std::ref(qu8rng));
-  std::generate(w154.begin(), w154.end(), std::ref(qs32rng));
-  std::generate(w155.begin(), w155.end(), std::ref(qu8rng));
-  std::generate(w156.begin(), w156.end(), std::ref(qs32rng));
-  std::generate(w157.begin(), w157.end(), std::ref(qu8rng));
-  std::generate(w158.begin(), w158.end(), std::ref(qs32rng));
-  std::generate(w159.begin(), w159.end(), std::ref(qu8rng));
-  std::generate(w160.begin(), w160.end(), std::ref(qs32rng));
-  std::generate(w161.begin(), w161.end(), std::ref(qu8rng));
-  std::generate(w162.begin(), w162.end(), std::ref(qs32rng));
-  std::generate(w163.begin(), w163.end(), std::ref(qu8rng));
+  std::generate(w154.begin(), w154.end(), std::ref(qu8rng));
+  std::generate(w155.begin(), w155.end(), std::ref(qs32rng));
+  std::generate(w156.begin(), w156.end(), std::ref(qu8rng));
+  std::generate(w157.begin(), w157.end(), std::ref(qs32rng));
+  std::generate(w158.begin(), w158.end(), std::ref(qu8rng));
+  std::generate(w159.begin(), w159.end(), std::ref(qs32rng));
+  std::generate(w160.begin(), w160.end(), std::ref(qu8rng));
+  std::generate(w161.begin(), w161.end(), std::ref(qs32rng));
+  std::generate(w162.begin(), w162.end(), std::ref(qu8rng));
+  std::generate(w163.begin(), w163.end(), std::ref(qs32rng));
   std::generate(w164.begin(), w164.end(), std::ref(qu8rng));
   std::generate(w165.begin(), w165.end(), std::ref(qu8rng));
-  std::generate(w166.begin(), w166.end(), std::ref(qs32rng));
-  std::generate(w167.begin(), w167.end(), std::ref(qu8rng));
-  std::generate(w168.begin(), w168.end(), std::ref(qs32rng));
-  std::generate(w169.begin(), w169.end(), std::ref(qu8rng));
-  std::generate(w170.begin(), w170.end(), std::ref(qs32rng));
-  std::generate(w171.begin(), w171.end(), std::ref(qu8rng));
-  std::generate(w172.begin(), w172.end(), std::ref(qs32rng));
-  std::generate(w173.begin(), w173.end(), std::ref(qu8rng));
-  std::generate(w174.begin(), w174.end(), std::ref(qs32rng));
-  std::generate(w175.begin(), w175.end(), std::ref(qu8rng));
+  std::generate(w166.begin(), w166.end(), std::ref(qu8rng));
+  std::generate(w167.begin(), w167.end(), std::ref(qs32rng));
+  std::generate(w168.begin(), w168.end(), std::ref(qu8rng));
+  std::generate(w169.begin(), w169.end(), std::ref(qs32rng));
+  std::generate(w170.begin(), w170.end(), std::ref(qu8rng));
+  std::generate(w171.begin(), w171.end(), std::ref(qs32rng));
+  std::generate(w172.begin(), w172.end(), std::ref(qu8rng));
+  std::generate(w173.begin(), w173.end(), std::ref(qs32rng));
+  std::generate(w174.begin(), w174.end(), std::ref(qu8rng));
+  std::generate(w175.begin(), w175.end(), std::ref(qs32rng));
   std::generate(w176.begin(), w176.end(), std::ref(qu8rng));
   std::generate(w177.begin(), w177.end(), std::ref(qu8rng));
-  std::generate(w178.begin(), w178.end(), std::ref(qs32rng));
-  std::generate(w179.begin(), w179.end(), std::ref(qu8rng));
-  std::generate(w180.begin(), w180.end(), std::ref(qs32rng));
-  std::generate(w181.begin(), w181.end(), std::ref(qu8rng));
-  std::generate(w182.begin(), w182.end(), std::ref(qs32rng));
-  std::generate(w183.begin(), w183.end(), std::ref(qu8rng));
-  std::generate(w184.begin(), w184.end(), std::ref(qs32rng));
-  std::generate(w185.begin(), w185.end(), std::ref(qu8rng));
-  std::generate(w186.begin(), w186.end(), std::ref(qs32rng));
-  std::generate(w187.begin(), w187.end(), std::ref(qu8rng));
+  std::generate(w178.begin(), w178.end(), std::ref(qu8rng));
+  std::generate(w179.begin(), w179.end(), std::ref(qs32rng));
+  std::generate(w180.begin(), w180.end(), std::ref(qu8rng));
+  std::generate(w181.begin(), w181.end(), std::ref(qs32rng));
+  std::generate(w182.begin(), w182.end(), std::ref(qu8rng));
+  std::generate(w183.begin(), w183.end(), std::ref(qs32rng));
+  std::generate(w184.begin(), w184.end(), std::ref(qu8rng));
+  std::generate(w185.begin(), w185.end(), std::ref(qs32rng));
+  std::generate(w186.begin(), w186.end(), std::ref(qu8rng));
+  std::generate(w187.begin(), w187.end(), std::ref(qs32rng));
   std::generate(w188.begin(), w188.end(), std::ref(qu8rng));
   std::generate(w189.begin(), w189.end(), std::ref(qu8rng));
-  std::generate(w190.begin(), w190.end(), std::ref(qs32rng));
-  std::generate(w191.begin(), w191.end(), std::ref(qu8rng));
-  std::generate(w192.begin(), w192.end(), std::ref(qs32rng));
-  std::generate(w193.begin(), w193.end(), std::ref(qu8rng));
-  std::generate(w194.begin(), w194.end(), std::ref(qs32rng));
-  std::generate(w195.begin(), w195.end(), std::ref(qu8rng));
-  std::generate(w196.begin(), w196.end(), std::ref(qs32rng));
-  std::generate(w197.begin(), w197.end(), std::ref(qu8rng));
-  std::generate(w198.begin(), w198.end(), std::ref(qs32rng));
-  std::generate(w199.begin(), w199.end(), std::ref(qu8rng));
+  std::generate(w190.begin(), w190.end(), std::ref(qu8rng));
+  std::generate(w191.begin(), w191.end(), std::ref(qs32rng));
+  std::generate(w192.begin(), w192.end(), std::ref(qu8rng));
+  std::generate(w193.begin(), w193.end(), std::ref(qs32rng));
+  std::generate(w194.begin(), w194.end(), std::ref(qu8rng));
+  std::generate(w195.begin(), w195.end(), std::ref(qs32rng));
+  std::generate(w196.begin(), w196.end(), std::ref(qu8rng));
+  std::generate(w197.begin(), w197.end(), std::ref(qs32rng));
+  std::generate(w198.begin(), w198.end(), std::ref(qu8rng));
+  std::generate(w199.begin(), w199.end(), std::ref(qs32rng));
   std::generate(w200.begin(), w200.end(), std::ref(qu8rng));
   std::generate(w201.begin(), w201.end(), std::ref(qu8rng));
-  std::generate(w202.begin(), w202.end(), std::ref(qs32rng));
-  std::generate(w203.begin(), w203.end(), std::ref(qu8rng));
-  std::generate(w204.begin(), w204.end(), std::ref(qs32rng));
-  std::generate(w205.begin(), w205.end(), std::ref(qu8rng));
-  std::generate(w206.begin(), w206.end(), std::ref(qs32rng));
-  std::generate(w207.begin(), w207.end(), std::ref(qu8rng));
-  std::generate(w208.begin(), w208.end(), std::ref(qs32rng));
-  std::generate(w209.begin(), w209.end(), std::ref(qu8rng));
-  std::generate(w210.begin(), w210.end(), std::ref(qs32rng));
-  std::generate(w211.begin(), w211.end(), std::ref(qu8rng));
+  std::generate(w202.begin(), w202.end(), std::ref(qu8rng));
+  std::generate(w203.begin(), w203.end(), std::ref(qs32rng));
+  std::generate(w204.begin(), w204.end(), std::ref(qu8rng));
+  std::generate(w205.begin(), w205.end(), std::ref(qs32rng));
+  std::generate(w206.begin(), w206.end(), std::ref(qu8rng));
+  std::generate(w207.begin(), w207.end(), std::ref(qs32rng));
+  std::generate(w208.begin(), w208.end(), std::ref(qu8rng));
+  std::generate(w209.begin(), w209.end(), std::ref(qs32rng));
+  std::generate(w210.begin(), w210.end(), std::ref(qu8rng));
+  std::generate(w211.begin(), w211.end(), std::ref(qs32rng));
   std::generate(w212.begin(), w212.end(), std::ref(qu8rng));
   std::generate(w213.begin(), w213.end(), std::ref(qu8rng));
-  std::generate(w214.begin(), w214.end(), std::ref(qs32rng));
-  std::generate(w215.begin(), w215.end(), std::ref(qu8rng));
-  std::generate(w216.begin(), w216.end(), std::ref(qs32rng));
-  std::generate(w217.begin(), w217.end(), std::ref(qu8rng));
-  std::generate(w218.begin(), w218.end(), std::ref(qs32rng));
-  std::generate(w219.begin(), w219.end(), std::ref(qu8rng));
-  std::generate(w220.begin(), w220.end(), std::ref(qs32rng));
-  std::generate(w221.begin(), w221.end(), std::ref(qu8rng));
-  std::generate(w222.begin(), w222.end(), std::ref(qs32rng));
-  std::generate(w223.begin(), w223.end(), std::ref(qu8rng));
+  std::generate(w214.begin(), w214.end(), std::ref(qu8rng));
+  std::generate(w215.begin(), w215.end(), std::ref(qs32rng));
+  std::generate(w216.begin(), w216.end(), std::ref(qu8rng));
+  std::generate(w217.begin(), w217.end(), std::ref(qs32rng));
+  std::generate(w218.begin(), w218.end(), std::ref(qu8rng));
+  std::generate(w219.begin(), w219.end(), std::ref(qs32rng));
+  std::generate(w220.begin(), w220.end(), std::ref(qu8rng));
+  std::generate(w221.begin(), w221.end(), std::ref(qs32rng));
+  std::generate(w222.begin(), w222.end(), std::ref(qu8rng));
+  std::generate(w223.begin(), w223.end(), std::ref(qs32rng));
   std::generate(w224.begin(), w224.end(), std::ref(qu8rng));
   std::generate(w225.begin(), w225.end(), std::ref(qu8rng));
-  std::generate(w226.begin(), w226.end(), std::ref(qs32rng));
-  std::generate(w227.begin(), w227.end(), std::ref(qu8rng));
-  std::generate(w228.begin(), w228.end(), std::ref(qs32rng));
-  std::generate(w229.begin(), w229.end(), std::ref(qu8rng));
-  std::generate(w230.begin(), w230.end(), std::ref(qs32rng));
-  std::generate(w231.begin(), w231.end(), std::ref(qu8rng));
-  std::generate(w232.begin(), w232.end(), std::ref(qs32rng));
-  std::generate(w233.begin(), w233.end(), std::ref(qu8rng));
-  std::generate(w234.begin(), w234.end(), std::ref(qs32rng));
-  std::generate(w235.begin(), w235.end(), std::ref(qu8rng));
+  std::generate(w226.begin(), w226.end(), std::ref(qu8rng));
+  std::generate(w227.begin(), w227.end(), std::ref(qs32rng));
+  std::generate(w228.begin(), w228.end(), std::ref(qu8rng));
+  std::generate(w229.begin(), w229.end(), std::ref(qs32rng));
+  std::generate(w230.begin(), w230.end(), std::ref(qu8rng));
+  std::generate(w231.begin(), w231.end(), std::ref(qs32rng));
+  std::generate(w232.begin(), w232.end(), std::ref(qu8rng));
+  std::generate(w233.begin(), w233.end(), std::ref(qs32rng));
+  std::generate(w234.begin(), w234.end(), std::ref(qu8rng));
+  std::generate(w235.begin(), w235.end(), std::ref(qs32rng));
   std::generate(w236.begin(), w236.end(), std::ref(qu8rng));
   std::generate(w237.begin(), w237.end(), std::ref(qu8rng));
-  std::generate(w238.begin(), w238.end(), std::ref(qs32rng));
-  std::generate(w239.begin(), w239.end(), std::ref(qu8rng));
-  std::generate(w240.begin(), w240.end(), std::ref(qs32rng));
-  std::generate(w241.begin(), w241.end(), std::ref(qu8rng));
-  std::generate(w242.begin(), w242.end(), std::ref(qs32rng));
-  std::generate(w243.begin(), w243.end(), std::ref(qu8rng));
-  std::generate(w244.begin(), w244.end(), std::ref(qs32rng));
+  std::generate(w238.begin(), w238.end(), std::ref(qu8rng));
+  std::generate(w239.begin(), w239.end(), std::ref(qs32rng));
+  std::generate(w240.begin(), w240.end(), std::ref(qu8rng));
+  std::generate(w241.begin(), w241.end(), std::ref(qs32rng));
+  std::generate(w242.begin(), w242.end(), std::ref(qu8rng));
+  std::generate(w243.begin(), w243.end(), std::ref(qs32rng));
+  std::generate(w244.begin(), w244.end(), std::ref(qu8rng));
+  std::generate(w245.begin(), w245.end(), std::ref(qs32rng));
 
   Operators operators;
   xnn_status status;
+  xnn_code_cache* code_cache_ptr = nullptr;
   size_t max_workspace_size = 0;
 
   xnn_operator_t op0 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 1 /* right padding */,
-    1 /* bottom padding */, 0 /* left padding */,
-    3 /* kernel height */, 3 /* kernel width */,
-    2 /* subsampling height */, 2 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    3 /* input channels per group */,
-    16 /* output_channels_per_group */,
-    3 /* input pixel stride */,
-    16 /* output pixel stride */,
-    (uint8_t) 128 /* input_zero_point */,
-    0.007874015718698502 /* input_scale */,
-    (uint8_t) 108 /* kernel_zero_point */,
-    0.03232726827263832 /* kernel_scale */,
-    w119.data(), w120.data(),
-    (uint8_t) 99 /* output_zero_point */,
-    0.2920726239681244 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/1,
+    /*input_padding_bottom=*/1, /*input_padding_left=*/0,
+    /*kernel_height=*/3, /*kernel_width=*/3,
+    /*subsampling_height=*/2, /*subsampling_width=*/2,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/3,
+    /*group_output_channels=*/16,
+    /*input_channel_stride=*/3,
+    /*output_channel_stride=*/16,
+    /*input_zero_point=*/(uint8_t) 128,
+    /*input_scale=*/0.007874015718698502,
+    /*kernel_zero_point=*/(uint8_t) 108,
+    /*kernel_scale=*/0.03232726827263832,
+    /*kernel=*/w120.data(), /*bias=*/w121.data(),
+    /*output_zero_point=*/(uint8_t) 99,
+    /*output_scale=*/0.2920726239681244,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op0);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #0" << std::endl;
@@ -562,27 +569,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op2 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 1 /* right padding */,
-    1 /* bottom padding */, 0 /* left padding */,
-    3 /* kernel height */, 3 /* kernel width */,
-    2 /* subsampling height */, 2 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    16 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    16 /* input pixel stride */,
-    16 /* output pixel stride */,
-    (uint8_t) 2 /* input_zero_point */,
-    0.173323854804039 /* input_scale */,
-    (uint8_t) 127 /* kernel_zero_point */,
-    0.0927056297659874 /* kernel_scale */,
-    w121.data(), w122.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.9925559759140015 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/1,
+    /*input_padding_bottom=*/1, /*input_padding_left=*/0,
+    /*kernel_height=*/3, /*kernel_width=*/3,
+    /*subsampling_height=*/2, /*subsampling_width=*/2,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/16,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/16,
+    /*output_channel_stride=*/16,
+    /*input_zero_point=*/(uint8_t) 2,
+    /*input_scale=*/0.173323854804039,
+    /*kernel_zero_point=*/(uint8_t) 127,
+    /*kernel_scale=*/0.0927056297659874,
+    /*kernel=*/w122.data(), /*bias=*/w123.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.9925559759140015,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op2);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #2" << std::endl;
@@ -606,27 +613,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op4 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    16 /* input channels per group */,
-    8 /* output_channels_per_group */,
-    16 /* input pixel stride */,
-    8 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.9925559759140015 /* input_scale */,
-    (uint8_t) 57 /* kernel_zero_point */,
-    0.00045214465353637934 /* kernel_scale */,
-    w123.data(), w124.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.03975478187203407 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/16,
+    /*group_output_channels=*/8,
+    /*input_channel_stride=*/16,
+    /*output_channel_stride=*/8,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.9925559759140015,
+    /*kernel_zero_point=*/(uint8_t) 57,
+    /*kernel_scale=*/0.00045214465353637934,
+    /*kernel=*/w124.data(), /*bias=*/w125.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.03975478187203407,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op4);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #4" << std::endl;
@@ -636,27 +643,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op5 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    8 /* input channels per group */,
-    16 /* output_channels_per_group */,
-    8 /* input pixel stride */,
-    16 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.03975478187203407 /* input_scale */,
-    (uint8_t) 1 /* kernel_zero_point */,
-    0.0007166960276663303 /* kernel_scale */,
-    w125.data(), w126.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.014429666101932526 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/8,
+    /*group_output_channels=*/16,
+    /*input_channel_stride=*/8,
+    /*output_channel_stride=*/16,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.03975478187203407,
+    /*kernel_zero_point=*/(uint8_t) 1,
+    /*kernel_scale=*/0.0007166960276663303,
+    /*kernel=*/w126.data(), /*bias=*/w127.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.014429666101932526,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op5);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #5" << std::endl;
@@ -708,27 +715,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op9 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    16 /* input channels per group */,
-    16 /* output_channels_per_group */,
-    16 /* input pixel stride */,
-    16 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.9246004223823547 /* input_scale */,
-    (uint8_t) 146 /* kernel_zero_point */,
-    0.017008759081363678 /* kernel_scale */,
-    w129.data(), w130.data(),
-    (uint8_t) 130 /* output_zero_point */,
-    2.010422706604004 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/16,
+    /*group_output_channels=*/16,
+    /*input_channel_stride=*/16,
+    /*output_channel_stride=*/16,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.9246004223823547,
+    /*kernel_zero_point=*/(uint8_t) 146,
+    /*kernel_scale=*/0.017008759081363678,
+    /*kernel=*/w130.data(), /*bias=*/w131.data(),
+    /*output_zero_point=*/(uint8_t) 130,
+    /*output_scale=*/2.010422706604004,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op9);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #9" << std::endl;
@@ -738,27 +745,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op10 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    16 /* input channels per group */,
-    72 /* output_channels_per_group */,
-    16 /* input pixel stride */,
-    72 /* output pixel stride */,
-    (uint8_t) 130 /* input_zero_point */,
-    2.010422706604004 /* input_scale */,
-    (uint8_t) 123 /* kernel_zero_point */,
-    0.005887787323445082 /* kernel_scale */,
-    w131.data(), w132.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.9493569135665894 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/16,
+    /*group_output_channels=*/72,
+    /*input_channel_stride=*/16,
+    /*output_channel_stride=*/72,
+    /*input_zero_point=*/(uint8_t) 130,
+    /*input_scale=*/2.010422706604004,
+    /*kernel_zero_point=*/(uint8_t) 123,
+    /*kernel_scale=*/0.005887787323445082,
+    /*kernel=*/w132.data(), /*bias=*/w133.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.9493569135665894,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op10);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #10" << std::endl;
@@ -768,27 +775,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op11 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 1 /* right padding */,
-    1 /* bottom padding */, 0 /* left padding */,
-    3 /* kernel height */, 3 /* kernel width */,
-    2 /* subsampling height */, 2 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    72 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    72 /* input pixel stride */,
-    72 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.9493569135665894 /* input_scale */,
-    (uint8_t) 113 /* kernel_zero_point */,
-    0.033502571284770966 /* kernel_scale */,
-    w133.data(), w134.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.6341432929039001 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/1,
+    /*input_padding_bottom=*/1, /*input_padding_left=*/0,
+    /*kernel_height=*/3, /*kernel_width=*/3,
+    /*subsampling_height=*/2, /*subsampling_width=*/2,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/72,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/72,
+    /*output_channel_stride=*/72,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.9493569135665894,
+    /*kernel_zero_point=*/(uint8_t) 113,
+    /*kernel_scale=*/0.033502571284770966,
+    /*kernel=*/w134.data(), /*bias=*/w135.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.6341432929039001,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op11);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #11" << std::endl;
@@ -798,27 +805,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op12 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    72 /* input channels per group */,
-    24 /* output_channels_per_group */,
-    72 /* input pixel stride */,
-    24 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.6341432929039001 /* input_scale */,
-    (uint8_t) 153 /* kernel_zero_point */,
-    0.017683790996670723 /* kernel_scale */,
-    w135.data(), w136.data(),
-    (uint8_t) 119 /* output_zero_point */,
-    1.0579205751419067 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/72,
+    /*group_output_channels=*/24,
+    /*input_channel_stride=*/72,
+    /*output_channel_stride=*/24,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.6341432929039001,
+    /*kernel_zero_point=*/(uint8_t) 153,
+    /*kernel_scale=*/0.017683790996670723,
+    /*kernel=*/w136.data(), /*bias=*/w137.data(),
+    /*output_zero_point=*/(uint8_t) 119,
+    /*output_scale=*/1.0579205751419067,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op12);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #12" << std::endl;
@@ -828,27 +835,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op13 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    24 /* input channels per group */,
-    88 /* output_channels_per_group */,
-    24 /* input pixel stride */,
-    88 /* output pixel stride */,
-    (uint8_t) 119 /* input_zero_point */,
-    1.0579205751419067 /* input_scale */,
-    (uint8_t) 99 /* kernel_zero_point */,
-    0.005299868993461132 /* kernel_scale */,
-    w137.data(), w138.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.20985400676727295 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/24,
+    /*group_output_channels=*/88,
+    /*input_channel_stride=*/24,
+    /*output_channel_stride=*/88,
+    /*input_zero_point=*/(uint8_t) 119,
+    /*input_scale=*/1.0579205751419067,
+    /*kernel_zero_point=*/(uint8_t) 99,
+    /*kernel_scale=*/0.005299868993461132,
+    /*kernel=*/w138.data(), /*bias=*/w139.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.20985400676727295,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op13);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #13" << std::endl;
@@ -858,27 +865,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op14 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    1 /* top padding */, 1 /* right padding */,
-    1 /* bottom padding */, 1 /* left padding */,
-    3 /* kernel height */, 3 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    88 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    88 /* input pixel stride */,
-    88 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.20985400676727295 /* input_scale */,
-    (uint8_t) 144 /* kernel_zero_point */,
-    0.05344513803720474 /* kernel_scale */,
-    w139.data(), w140.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.22873805463314056 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/1, /*input_padding_right=*/1,
+    /*input_padding_bottom=*/1, /*input_padding_left=*/1,
+    /*kernel_height=*/3, /*kernel_width=*/3,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/88,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/88,
+    /*output_channel_stride=*/88,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.20985400676727295,
+    /*kernel_zero_point=*/(uint8_t) 144,
+    /*kernel_scale=*/0.05344513803720474,
+    /*kernel=*/w140.data(), /*bias=*/w141.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.22873805463314056,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op14);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #14" << std::endl;
@@ -888,27 +895,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op15 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    88 /* input channels per group */,
-    24 /* output_channels_per_group */,
-    88 /* input pixel stride */,
-    24 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.22873805463314056 /* input_scale */,
-    (uint8_t) 139 /* kernel_zero_point */,
-    0.015702862292528152 /* kernel_scale */,
-    w141.data(), w142.data(),
-    (uint8_t) 124 /* output_zero_point */,
-    0.8896244764328003 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/88,
+    /*group_output_channels=*/24,
+    /*input_channel_stride=*/88,
+    /*output_channel_stride=*/24,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.22873805463314056,
+    /*kernel_zero_point=*/(uint8_t) 139,
+    /*kernel_scale=*/0.015702862292528152,
+    /*kernel=*/w142.data(), /*bias=*/w143.data(),
+    /*output_zero_point=*/(uint8_t) 124,
+    /*output_scale=*/0.8896244764328003,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op15);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #15" << std::endl;
@@ -932,27 +939,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op17 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    24 /* input channels per group */,
-    96 /* output_channels_per_group */,
-    24 /* input pixel stride */,
-    96 /* output pixel stride */,
-    (uint8_t) 123 /* input_zero_point */,
-    1.0426580905914307 /* input_scale */,
-    (uint8_t) 154 /* kernel_zero_point */,
-    0.002672378672286868 /* kernel_scale */,
-    w143.data(), w144.data(),
-    (uint8_t) 110 /* output_zero_point */,
-    0.3380434811115265 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/24,
+    /*group_output_channels=*/96,
+    /*input_channel_stride=*/24,
+    /*output_channel_stride=*/96,
+    /*input_zero_point=*/(uint8_t) 123,
+    /*input_scale=*/1.0426580905914307,
+    /*kernel_zero_point=*/(uint8_t) 154,
+    /*kernel_scale=*/0.002672378672286868,
+    /*kernel=*/w144.data(), /*bias=*/w145.data(),
+    /*output_zero_point=*/(uint8_t) 110,
+    /*output_scale=*/0.3380434811115265,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op17);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #17" << std::endl;
@@ -975,27 +982,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op19 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    1 /* top padding */, 2 /* right padding */,
-    2 /* bottom padding */, 1 /* left padding */,
-    5 /* kernel height */, 5 /* kernel width */,
-    2 /* subsampling height */, 2 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    96 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    96 /* input pixel stride */,
-    96 /* output pixel stride */,
-    (uint8_t) 2 /* input_zero_point */,
-    0.18497292697429657 /* input_scale */,
-    (uint8_t) 142 /* kernel_zero_point */,
-    0.031311504542827606 /* kernel_scale */,
-    w145.data(), w146.data(),
-    (uint8_t) 134 /* output_zero_point */,
-    0.24109338223934174 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/1, /*input_padding_right=*/2,
+    /*input_padding_bottom=*/2, /*input_padding_left=*/1,
+    /*kernel_height=*/5, /*kernel_width=*/5,
+    /*subsampling_height=*/2, /*subsampling_width=*/2,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/96,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/96,
+    /*output_channel_stride=*/96,
+    /*input_zero_point=*/(uint8_t) 2,
+    /*input_scale=*/0.18497292697429657,
+    /*kernel_zero_point=*/(uint8_t) 142,
+    /*kernel_scale=*/0.031311504542827606,
+    /*kernel=*/w146.data(), /*bias=*/w147.data(),
+    /*output_zero_point=*/(uint8_t) 134,
+    /*output_scale=*/0.24109338223934174,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op19);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #19" << std::endl;
@@ -1032,27 +1039,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op22 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    96 /* input channels per group */,
-    24 /* output_channels_per_group */,
-    96 /* input pixel stride */,
-    24 /* output pixel stride */,
-    (uint8_t) 3 /* input_zero_point */,
-    0.1065792664885521 /* input_scale */,
-    (uint8_t) 98 /* kernel_zero_point */,
-    0.005171800963580608 /* kernel_scale */,
-    w147.data(), w148.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.051762163639068604 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/96,
+    /*group_output_channels=*/24,
+    /*input_channel_stride=*/96,
+    /*output_channel_stride=*/24,
+    /*input_zero_point=*/(uint8_t) 3,
+    /*input_scale=*/0.1065792664885521,
+    /*kernel_zero_point=*/(uint8_t) 98,
+    /*kernel_scale=*/0.005171800963580608,
+    /*kernel=*/w148.data(), /*bias=*/w149.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.051762163639068604,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op22);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #22" << std::endl;
@@ -1062,27 +1069,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op23 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    24 /* input channels per group */,
-    96 /* output_channels_per_group */,
-    24 /* input pixel stride */,
-    96 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.051762163639068604 /* input_scale */,
-    (uint8_t) 106 /* kernel_zero_point */,
-    0.005030923057347536 /* kernel_scale */,
-    w149.data(), w150.data(),
-    (uint8_t) 98 /* output_zero_point */,
-    0.03421778604388237 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/24,
+    /*group_output_channels=*/96,
+    /*input_channel_stride=*/24,
+    /*output_channel_stride=*/96,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.051762163639068604,
+    /*kernel_zero_point=*/(uint8_t) 106,
+    /*kernel_scale=*/0.005030923057347536,
+    /*kernel=*/w150.data(), /*bias=*/w151.data(),
+    /*output_zero_point=*/(uint8_t) 98,
+    /*output_scale=*/0.03421778604388237,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op23);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #23" << std::endl;
@@ -1134,27 +1141,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op27 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    96 /* input channels per group */,
-    40 /* output_channels_per_group */,
-    96 /* input pixel stride */,
-    40 /* output pixel stride */,
-    (uint8_t) 4 /* input_zero_point */,
-    0.07695811986923218 /* input_scale */,
-    (uint8_t) 128 /* kernel_zero_point */,
-    0.03726894408464432 /* kernel_scale */,
-    w153.data(), w154.data(),
-    (uint8_t) 127 /* output_zero_point */,
-    0.3759814500808716 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/96,
+    /*group_output_channels=*/40,
+    /*input_channel_stride=*/96,
+    /*output_channel_stride=*/40,
+    /*input_zero_point=*/(uint8_t) 4,
+    /*input_scale=*/0.07695811986923218,
+    /*kernel_zero_point=*/(uint8_t) 128,
+    /*kernel_scale=*/0.03726894408464432,
+    /*kernel=*/w154.data(), /*bias=*/w155.data(),
+    /*output_zero_point=*/(uint8_t) 127,
+    /*output_scale=*/0.3759814500808716,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op27);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #27" << std::endl;
@@ -1164,27 +1171,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op28 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    40 /* input channels per group */,
-    240 /* output_channels_per_group */,
-    40 /* input pixel stride */,
-    240 /* output pixel stride */,
-    (uint8_t) 127 /* input_zero_point */,
-    0.3759814500808716 /* input_scale */,
-    (uint8_t) 159 /* kernel_zero_point */,
-    0.003184415865689516 /* kernel_scale */,
-    w155.data(), w156.data(),
-    (uint8_t) 128 /* output_zero_point */,
-    0.17979219555854797 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/40,
+    /*group_output_channels=*/240,
+    /*input_channel_stride=*/40,
+    /*output_channel_stride=*/240,
+    /*input_zero_point=*/(uint8_t) 127,
+    /*input_scale=*/0.3759814500808716,
+    /*kernel_zero_point=*/(uint8_t) 159,
+    /*kernel_scale=*/0.003184415865689516,
+    /*kernel=*/w156.data(), /*bias=*/w157.data(),
+    /*output_zero_point=*/(uint8_t) 128,
+    /*output_scale=*/0.17979219555854797,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op28);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #28" << std::endl;
@@ -1207,27 +1214,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op30 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    2 /* top padding */, 2 /* right padding */,
-    2 /* bottom padding */, 2 /* left padding */,
-    5 /* kernel height */, 5 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    240 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    240 /* input pixel stride */,
-    240 /* output pixel stride */,
-    (uint8_t) 4 /* input_zero_point */,
-    0.08579955250024796 /* input_scale */,
-    (uint8_t) 143 /* kernel_zero_point */,
-    0.1883949190378189 /* kernel_scale */,
-    w157.data(), w158.data(),
-    (uint8_t) 130 /* output_zero_point */,
-    0.49307096004486084 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/2, /*input_padding_right=*/2,
+    /*input_padding_bottom=*/2, /*input_padding_left=*/2,
+    /*kernel_height=*/5, /*kernel_width=*/5,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/240,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/240,
+    /*output_channel_stride=*/240,
+    /*input_zero_point=*/(uint8_t) 4,
+    /*input_scale=*/0.08579955250024796,
+    /*kernel_zero_point=*/(uint8_t) 143,
+    /*kernel_scale=*/0.1883949190378189,
+    /*kernel=*/w158.data(), /*bias=*/w159.data(),
+    /*output_zero_point=*/(uint8_t) 130,
+    /*output_scale=*/0.49307096004486084,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op30);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #30" << std::endl;
@@ -1264,27 +1271,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op33 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    240 /* input channels per group */,
-    64 /* output_channels_per_group */,
-    240 /* input pixel stride */,
-    64 /* output pixel stride */,
-    (uint8_t) 2 /* input_zero_point */,
-    0.220099538564682 /* input_scale */,
-    (uint8_t) 149 /* kernel_zero_point */,
-    0.009354852139949799 /* kernel_scale */,
-    w159.data(), w160.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.016910869628190994 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/240,
+    /*group_output_channels=*/64,
+    /*input_channel_stride=*/240,
+    /*output_channel_stride=*/64,
+    /*input_zero_point=*/(uint8_t) 2,
+    /*input_scale=*/0.220099538564682,
+    /*kernel_zero_point=*/(uint8_t) 149,
+    /*kernel_scale=*/0.009354852139949799,
+    /*kernel=*/w160.data(), /*bias=*/w161.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.016910869628190994,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op33);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #33" << std::endl;
@@ -1294,27 +1301,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op34 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    64 /* input channels per group */,
-    240 /* output_channels_per_group */,
-    64 /* input pixel stride */,
-    240 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.016910869628190994 /* input_scale */,
-    (uint8_t) 108 /* kernel_zero_point */,
-    0.006087664980441332 /* kernel_scale */,
-    w161.data(), w162.data(),
-    (uint8_t) 144 /* output_zero_point */,
-    0.03480793163180351 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/64,
+    /*group_output_channels=*/240,
+    /*input_channel_stride=*/64,
+    /*output_channel_stride=*/240,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.016910869628190994,
+    /*kernel_zero_point=*/(uint8_t) 108,
+    /*kernel_scale=*/0.006087664980441332,
+    /*kernel=*/w162.data(), /*bias=*/w163.data(),
+    /*output_zero_point=*/(uint8_t) 144,
+    /*output_scale=*/0.03480793163180351,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op34);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #34" << std::endl;
@@ -1366,27 +1373,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op38 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    240 /* input channels per group */,
-    40 /* output_channels_per_group */,
-    240 /* input pixel stride */,
-    40 /* output pixel stride */,
-    (uint8_t) 20 /* input_zero_point */,
-    0.02150452695786953 /* input_scale */,
-    (uint8_t) 115 /* kernel_zero_point */,
-    0.1018327996134758 /* kernel_scale */,
-    w165.data(), w166.data(),
-    (uint8_t) 137 /* output_zero_point */,
-    0.4652852416038513 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/240,
+    /*group_output_channels=*/40,
+    /*input_channel_stride=*/240,
+    /*output_channel_stride=*/40,
+    /*input_zero_point=*/(uint8_t) 20,
+    /*input_scale=*/0.02150452695786953,
+    /*kernel_zero_point=*/(uint8_t) 115,
+    /*kernel_scale=*/0.1018327996134758,
+    /*kernel=*/w166.data(), /*bias=*/w167.data(),
+    /*output_zero_point=*/(uint8_t) 137,
+    /*output_scale=*/0.4652852416038513,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op38);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #38" << std::endl;
@@ -1410,27 +1417,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op40 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    40 /* input channels per group */,
-    240 /* output_channels_per_group */,
-    40 /* input pixel stride */,
-    240 /* output pixel stride */,
-    (uint8_t) 132 /* input_zero_point */,
-    0.44771137833595276 /* input_scale */,
-    (uint8_t) 129 /* kernel_zero_point */,
-    0.0009919562144204974 /* kernel_scale */,
-    w167.data(), w168.data(),
-    (uint8_t) 118 /* output_zero_point */,
-    0.12498034536838531 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/40,
+    /*group_output_channels=*/240,
+    /*input_channel_stride=*/40,
+    /*output_channel_stride=*/240,
+    /*input_zero_point=*/(uint8_t) 132,
+    /*input_scale=*/0.44771137833595276,
+    /*kernel_zero_point=*/(uint8_t) 129,
+    /*kernel_scale=*/0.0009919562144204974,
+    /*kernel=*/w168.data(), /*bias=*/w169.data(),
+    /*output_zero_point=*/(uint8_t) 118,
+    /*output_scale=*/0.12498034536838531,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op40);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #40" << std::endl;
@@ -1453,27 +1460,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op42 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    2 /* top padding */, 2 /* right padding */,
-    2 /* bottom padding */, 2 /* left padding */,
-    5 /* kernel height */, 5 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    240 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    240 /* input pixel stride */,
-    240 /* output pixel stride */,
-    (uint8_t) 6 /* input_zero_point */,
-    0.06491293758153915 /* input_scale */,
-    (uint8_t) 101 /* kernel_zero_point */,
-    0.13295969367027283 /* kernel_scale */,
-    w169.data(), w170.data(),
-    (uint8_t) 150 /* output_zero_point */,
-    0.29956355690956116 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/2, /*input_padding_right=*/2,
+    /*input_padding_bottom=*/2, /*input_padding_left=*/2,
+    /*kernel_height=*/5, /*kernel_width=*/5,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/240,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/240,
+    /*output_channel_stride=*/240,
+    /*input_zero_point=*/(uint8_t) 6,
+    /*input_scale=*/0.06491293758153915,
+    /*kernel_zero_point=*/(uint8_t) 101,
+    /*kernel_scale=*/0.13295969367027283,
+    /*kernel=*/w170.data(), /*bias=*/w171.data(),
+    /*output_zero_point=*/(uint8_t) 150,
+    /*output_scale=*/0.29956355690956116,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op42);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #42" << std::endl;
@@ -1510,27 +1517,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op45 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    240 /* input channels per group */,
-    64 /* output_channels_per_group */,
-    240 /* input pixel stride */,
-    64 /* output pixel stride */,
-    (uint8_t) 3 /* input_zero_point */,
-    0.11336661875247955 /* input_scale */,
-    (uint8_t) 163 /* kernel_zero_point */,
-    0.007440278306603432 /* kernel_scale */,
-    w171.data(), w172.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.008480816148221493 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/240,
+    /*group_output_channels=*/64,
+    /*input_channel_stride=*/240,
+    /*output_channel_stride=*/64,
+    /*input_zero_point=*/(uint8_t) 3,
+    /*input_scale=*/0.11336661875247955,
+    /*kernel_zero_point=*/(uint8_t) 163,
+    /*kernel_scale=*/0.007440278306603432,
+    /*kernel=*/w172.data(), /*bias=*/w173.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.008480816148221493,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op45);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #45" << std::endl;
@@ -1540,27 +1547,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op46 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    64 /* input channels per group */,
-    240 /* output_channels_per_group */,
-    64 /* input pixel stride */,
-    240 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.008480816148221493 /* input_scale */,
-    (uint8_t) 110 /* kernel_zero_point */,
-    0.006039419211447239 /* kernel_scale */,
-    w173.data(), w174.data(),
-    (uint8_t) 135 /* output_zero_point */,
-    0.027621593326330185 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/64,
+    /*group_output_channels=*/240,
+    /*input_channel_stride=*/64,
+    /*output_channel_stride=*/240,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.008480816148221493,
+    /*kernel_zero_point=*/(uint8_t) 110,
+    /*kernel_scale=*/0.006039419211447239,
+    /*kernel=*/w174.data(), /*bias=*/w175.data(),
+    /*output_zero_point=*/(uint8_t) 135,
+    /*output_scale=*/0.027621593326330185,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op46);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #46" << std::endl;
@@ -1612,27 +1619,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op50 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    240 /* input channels per group */,
-    40 /* output_channels_per_group */,
-    240 /* input pixel stride */,
-    40 /* output pixel stride */,
-    (uint8_t) 21 /* input_zero_point */,
-    0.0160247553139925 /* input_scale */,
-    (uint8_t) 131 /* kernel_zero_point */,
-    0.22305507957935333 /* kernel_scale */,
-    w177.data(), w178.data(),
-    (uint8_t) 139 /* output_zero_point */,
-    0.544162929058075 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/240,
+    /*group_output_channels=*/40,
+    /*input_channel_stride=*/240,
+    /*output_channel_stride=*/40,
+    /*input_zero_point=*/(uint8_t) 21,
+    /*input_scale=*/0.0160247553139925,
+    /*kernel_zero_point=*/(uint8_t) 131,
+    /*kernel_scale=*/0.22305507957935333,
+    /*kernel=*/w178.data(), /*bias=*/w179.data(),
+    /*output_zero_point=*/(uint8_t) 139,
+    /*output_scale=*/0.544162929058075,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op50);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #50" << std::endl;
@@ -1656,27 +1663,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op52 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    40 /* input channels per group */,
-    120 /* output_channels_per_group */,
-    40 /* input pixel stride */,
-    120 /* output pixel stride */,
-    (uint8_t) 137 /* input_zero_point */,
-    0.6061347723007202 /* input_scale */,
-    (uint8_t) 90 /* kernel_zero_point */,
-    0.0014072866179049015 /* kernel_scale */,
-    w179.data(), w180.data(),
-    (uint8_t) 117 /* output_zero_point */,
-    0.13909709453582764 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/40,
+    /*group_output_channels=*/120,
+    /*input_channel_stride=*/40,
+    /*output_channel_stride=*/120,
+    /*input_zero_point=*/(uint8_t) 137,
+    /*input_scale=*/0.6061347723007202,
+    /*kernel_zero_point=*/(uint8_t) 90,
+    /*kernel_scale=*/0.0014072866179049015,
+    /*kernel=*/w180.data(), /*bias=*/w181.data(),
+    /*output_zero_point=*/(uint8_t) 117,
+    /*output_scale=*/0.13909709453582764,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op52);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #52" << std::endl;
@@ -1699,27 +1706,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op54 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    2 /* top padding */, 2 /* right padding */,
-    2 /* bottom padding */, 2 /* left padding */,
-    5 /* kernel height */, 5 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    120 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    120 /* input pixel stride */,
-    120 /* output pixel stride */,
-    (uint8_t) 5 /* input_zero_point */,
-    0.0727764368057251 /* input_scale */,
-    (uint8_t) 121 /* kernel_zero_point */,
-    0.09157519787549973 /* kernel_scale */,
-    w181.data(), w182.data(),
-    (uint8_t) 140 /* output_zero_point */,
-    0.28514617681503296 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/2, /*input_padding_right=*/2,
+    /*input_padding_bottom=*/2, /*input_padding_left=*/2,
+    /*kernel_height=*/5, /*kernel_width=*/5,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/120,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/120,
+    /*output_channel_stride=*/120,
+    /*input_zero_point=*/(uint8_t) 5,
+    /*input_scale=*/0.0727764368057251,
+    /*kernel_zero_point=*/(uint8_t) 121,
+    /*kernel_scale=*/0.09157519787549973,
+    /*kernel=*/w182.data(), /*bias=*/w183.data(),
+    /*output_zero_point=*/(uint8_t) 140,
+    /*output_scale=*/0.28514617681503296,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op54);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #54" << std::endl;
@@ -1756,27 +1763,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op57 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    120 /* input channels per group */,
-    32 /* output_channels_per_group */,
-    120 /* input pixel stride */,
-    32 /* output pixel stride */,
-    (uint8_t) 3 /* input_zero_point */,
-    0.1223522424697876 /* input_scale */,
-    (uint8_t) 40 /* kernel_zero_point */,
-    0.0008257423178292811 /* kernel_scale */,
-    w183.data(), w184.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.025332391262054443 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/120,
+    /*group_output_channels=*/32,
+    /*input_channel_stride=*/120,
+    /*output_channel_stride=*/32,
+    /*input_zero_point=*/(uint8_t) 3,
+    /*input_scale=*/0.1223522424697876,
+    /*kernel_zero_point=*/(uint8_t) 40,
+    /*kernel_scale=*/0.0008257423178292811,
+    /*kernel=*/w184.data(), /*bias=*/w185.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.025332391262054443,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op57);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #57" << std::endl;
@@ -1786,27 +1793,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op58 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    32 /* input channels per group */,
-    120 /* output_channels_per_group */,
-    32 /* input pixel stride */,
-    120 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.025332391262054443 /* input_scale */,
-    (uint8_t) 220 /* kernel_zero_point */,
-    0.0021832138299942017 /* kernel_scale */,
-    w185.data(), w186.data(),
-    (uint8_t) 139 /* output_zero_point */,
-    0.026293933391571045 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/32,
+    /*group_output_channels=*/120,
+    /*input_channel_stride=*/32,
+    /*output_channel_stride=*/120,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.025332391262054443,
+    /*kernel_zero_point=*/(uint8_t) 220,
+    /*kernel_scale=*/0.0021832138299942017,
+    /*kernel=*/w186.data(), /*bias=*/w187.data(),
+    /*output_zero_point=*/(uint8_t) 139,
+    /*output_scale=*/0.026293933391571045,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op58);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #58" << std::endl;
@@ -1858,27 +1865,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op62 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    120 /* input channels per group */,
-    48 /* output_channels_per_group */,
-    120 /* input pixel stride */,
-    48 /* output pixel stride */,
-    (uint8_t) 7 /* input_zero_point */,
-    0.04942065477371216 /* input_scale */,
-    (uint8_t) 101 /* kernel_zero_point */,
-    0.03507576882839203 /* kernel_scale */,
-    w189.data(), w190.data(),
-    (uint8_t) 129 /* output_zero_point */,
-    0.39454951882362366 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/120,
+    /*group_output_channels=*/48,
+    /*input_channel_stride=*/120,
+    /*output_channel_stride=*/48,
+    /*input_zero_point=*/(uint8_t) 7,
+    /*input_scale=*/0.04942065477371216,
+    /*kernel_zero_point=*/(uint8_t) 101,
+    /*kernel_scale=*/0.03507576882839203,
+    /*kernel=*/w190.data(), /*bias=*/w191.data(),
+    /*output_zero_point=*/(uint8_t) 129,
+    /*output_scale=*/0.39454951882362366,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op62);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #62" << std::endl;
@@ -1888,27 +1895,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op63 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    48 /* input channels per group */,
-    144 /* output_channels_per_group */,
-    48 /* input pixel stride */,
-    144 /* output pixel stride */,
-    (uint8_t) 129 /* input_zero_point */,
-    0.39454951882362366 /* input_scale */,
-    (uint8_t) 148 /* kernel_zero_point */,
-    0.0015211983118206263 /* kernel_scale */,
-    w191.data(), w192.data(),
-    (uint8_t) 114 /* output_zero_point */,
-    0.18048983812332153 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/48,
+    /*group_output_channels=*/144,
+    /*input_channel_stride=*/48,
+    /*output_channel_stride=*/144,
+    /*input_zero_point=*/(uint8_t) 129,
+    /*input_scale=*/0.39454951882362366,
+    /*kernel_zero_point=*/(uint8_t) 148,
+    /*kernel_scale=*/0.0015211983118206263,
+    /*kernel=*/w192.data(), /*bias=*/w193.data(),
+    /*output_zero_point=*/(uint8_t) 114,
+    /*output_scale=*/0.18048983812332153,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op63);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #63" << std::endl;
@@ -1931,27 +1938,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op65 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    2 /* top padding */, 2 /* right padding */,
-    2 /* bottom padding */, 2 /* left padding */,
-    5 /* kernel height */, 5 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    144 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    144 /* input pixel stride */,
-    144 /* output pixel stride */,
-    (uint8_t) 4 /* input_zero_point */,
-    0.09509307891130447 /* input_scale */,
-    (uint8_t) 115 /* kernel_zero_point */,
-    0.0958247184753418 /* kernel_scale */,
-    w193.data(), w194.data(),
-    (uint8_t) 151 /* output_zero_point */,
-    0.3922523558139801 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/2, /*input_padding_right=*/2,
+    /*input_padding_bottom=*/2, /*input_padding_left=*/2,
+    /*kernel_height=*/5, /*kernel_width=*/5,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/144,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/144,
+    /*output_channel_stride=*/144,
+    /*input_zero_point=*/(uint8_t) 4,
+    /*input_scale=*/0.09509307891130447,
+    /*kernel_zero_point=*/(uint8_t) 115,
+    /*kernel_scale=*/0.0958247184753418,
+    /*kernel=*/w194.data(), /*bias=*/w195.data(),
+    /*output_zero_point=*/(uint8_t) 151,
+    /*output_scale=*/0.3922523558139801,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op65);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #65" << std::endl;
@@ -1988,27 +1995,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op68 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    144 /* input channels per group */,
-    40 /* output_channels_per_group */,
-    144 /* input pixel stride */,
-    40 /* output pixel stride */,
-    (uint8_t) 2 /* input_zero_point */,
-    0.14624309539794922 /* input_scale */,
-    (uint8_t) 130 /* kernel_zero_point */,
-    0.0060674939304590225 /* kernel_scale */,
-    w195.data(), w196.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.008962834253907204 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/144,
+    /*group_output_channels=*/40,
+    /*input_channel_stride=*/144,
+    /*output_channel_stride=*/40,
+    /*input_zero_point=*/(uint8_t) 2,
+    /*input_scale=*/0.14624309539794922,
+    /*kernel_zero_point=*/(uint8_t) 130,
+    /*kernel_scale=*/0.0060674939304590225,
+    /*kernel=*/w196.data(), /*bias=*/w197.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.008962834253907204,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op68);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #68" << std::endl;
@@ -2018,27 +2025,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op69 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    40 /* input channels per group */,
-    144 /* output_channels_per_group */,
-    40 /* input pixel stride */,
-    144 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.008962834253907204 /* input_scale */,
-    (uint8_t) 124 /* kernel_zero_point */,
-    0.004431542940437794 /* kernel_scale */,
-    w197.data(), w198.data(),
-    (uint8_t) 134 /* output_zero_point */,
-    0.02729739062488079 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/40,
+    /*group_output_channels=*/144,
+    /*input_channel_stride=*/40,
+    /*output_channel_stride=*/144,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.008962834253907204,
+    /*kernel_zero_point=*/(uint8_t) 124,
+    /*kernel_scale=*/0.004431542940437794,
+    /*kernel=*/w198.data(), /*bias=*/w199.data(),
+    /*output_zero_point=*/(uint8_t) 134,
+    /*output_scale=*/0.02729739062488079,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op69);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #69" << std::endl;
@@ -2090,27 +2097,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op73 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    144 /* input channels per group */,
-    48 /* output_channels_per_group */,
-    144 /* input pixel stride */,
-    48 /* output pixel stride */,
-    (uint8_t) 13 /* input_zero_point */,
-    0.023374175652861595 /* input_scale */,
-    (uint8_t) 125 /* kernel_zero_point */,
-    0.13331712782382965 /* kernel_scale */,
-    w201.data(), w202.data(),
-    (uint8_t) 140 /* output_zero_point */,
-    0.42487239837646484 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/144,
+    /*group_output_channels=*/48,
+    /*input_channel_stride=*/144,
+    /*output_channel_stride=*/48,
+    /*input_zero_point=*/(uint8_t) 13,
+    /*input_scale=*/0.023374175652861595,
+    /*kernel_zero_point=*/(uint8_t) 125,
+    /*kernel_scale=*/0.13331712782382965,
+    /*kernel=*/w202.data(), /*bias=*/w203.data(),
+    /*output_zero_point=*/(uint8_t) 140,
+    /*output_scale=*/0.42487239837646484,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op73);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #73" << std::endl;
@@ -2134,27 +2141,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op75 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    48 /* input channels per group */,
-    288 /* output_channels_per_group */,
-    48 /* input pixel stride */,
-    288 /* output pixel stride */,
-    (uint8_t) 137 /* input_zero_point */,
-    0.48052287101745605 /* input_scale */,
-    (uint8_t) 132 /* kernel_zero_point */,
-    0.0014037908986210823 /* kernel_scale */,
-    w203.data(), w204.data(),
-    (uint8_t) 113 /* output_zero_point */,
-    0.14607380330562592 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/48,
+    /*group_output_channels=*/288,
+    /*input_channel_stride=*/48,
+    /*output_channel_stride=*/288,
+    /*input_zero_point=*/(uint8_t) 137,
+    /*input_scale=*/0.48052287101745605,
+    /*kernel_zero_point=*/(uint8_t) 132,
+    /*kernel_scale=*/0.0014037908986210823,
+    /*kernel=*/w204.data(), /*bias=*/w205.data(),
+    /*output_zero_point=*/(uint8_t) 113,
+    /*output_scale=*/0.14607380330562592,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op75);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #75" << std::endl;
@@ -2177,27 +2184,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op77 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    1 /* top padding */, 2 /* right padding */,
-    2 /* bottom padding */, 1 /* left padding */,
-    5 /* kernel height */, 5 /* kernel width */,
-    2 /* subsampling height */, 2 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    288 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    288 /* input pixel stride */,
-    288 /* output pixel stride */,
-    (uint8_t) 5 /* input_zero_point */,
-    0.07805965095758438 /* input_scale */,
-    (uint8_t) 105 /* kernel_zero_point */,
-    0.035035692155361176 /* kernel_scale */,
-    w205.data(), w206.data(),
-    (uint8_t) 83 /* output_zero_point */,
-    0.13729262351989746 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/1, /*input_padding_right=*/2,
+    /*input_padding_bottom=*/2, /*input_padding_left=*/1,
+    /*kernel_height=*/5, /*kernel_width=*/5,
+    /*subsampling_height=*/2, /*subsampling_width=*/2,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/288,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/288,
+    /*output_channel_stride=*/288,
+    /*input_zero_point=*/(uint8_t) 5,
+    /*input_scale=*/0.07805965095758438,
+    /*kernel_zero_point=*/(uint8_t) 105,
+    /*kernel_scale=*/0.035035692155361176,
+    /*kernel=*/w206.data(), /*bias=*/w207.data(),
+    /*output_zero_point=*/(uint8_t) 83,
+    /*output_scale=*/0.13729262351989746,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op77);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #77" << std::endl;
@@ -2234,27 +2241,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op80 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    288 /* input channels per group */,
-    72 /* output_channels_per_group */,
-    288 /* input pixel stride */,
-    72 /* output pixel stride */,
-    (uint8_t) 4 /* input_zero_point */,
-    0.08693098276853561 /* input_scale */,
-    (uint8_t) 120 /* kernel_zero_point */,
-    0.006728844251483679 /* kernel_scale */,
-    w207.data(), w208.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.016604457050561905 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/288,
+    /*group_output_channels=*/72,
+    /*input_channel_stride=*/288,
+    /*output_channel_stride=*/72,
+    /*input_zero_point=*/(uint8_t) 4,
+    /*input_scale=*/0.08693098276853561,
+    /*kernel_zero_point=*/(uint8_t) 120,
+    /*kernel_scale=*/0.006728844251483679,
+    /*kernel=*/w208.data(), /*bias=*/w209.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.016604457050561905,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op80);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #80" << std::endl;
@@ -2264,27 +2271,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op81 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    72 /* input channels per group */,
-    288 /* output_channels_per_group */,
-    72 /* input pixel stride */,
-    288 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.016604457050561905 /* input_scale */,
-    (uint8_t) 152 /* kernel_zero_point */,
-    0.005426046904176474 /* kernel_scale */,
-    w209.data(), w210.data(),
-    (uint8_t) 123 /* output_zero_point */,
-    0.03482932597398758 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/72,
+    /*group_output_channels=*/288,
+    /*input_channel_stride=*/72,
+    /*output_channel_stride=*/288,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.016604457050561905,
+    /*kernel_zero_point=*/(uint8_t) 152,
+    /*kernel_scale=*/0.005426046904176474,
+    /*kernel=*/w210.data(), /*bias=*/w211.data(),
+    /*output_zero_point=*/(uint8_t) 123,
+    /*output_scale=*/0.03482932597398758,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op81);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #81" << std::endl;
@@ -2336,27 +2343,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op85 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    288 /* input channels per group */,
-    96 /* output_channels_per_group */,
-    288 /* input pixel stride */,
-    96 /* output pixel stride */,
-    (uint8_t) 10 /* input_zero_point */,
-    0.03586701303720474 /* input_scale */,
-    (uint8_t) 122 /* kernel_zero_point */,
-    0.019641198217868805 /* kernel_scale */,
-    w213.data(), w214.data(),
-    (uint8_t) 130 /* output_zero_point */,
-    0.2735706567764282 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/288,
+    /*group_output_channels=*/96,
+    /*input_channel_stride=*/288,
+    /*output_channel_stride=*/96,
+    /*input_zero_point=*/(uint8_t) 10,
+    /*input_scale=*/0.03586701303720474,
+    /*kernel_zero_point=*/(uint8_t) 122,
+    /*kernel_scale=*/0.019641198217868805,
+    /*kernel=*/w214.data(), /*bias=*/w215.data(),
+    /*output_zero_point=*/(uint8_t) 130,
+    /*output_scale=*/0.2735706567764282,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op85);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #85" << std::endl;
@@ -2366,27 +2373,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op86 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    96 /* input channels per group */,
-    576 /* output_channels_per_group */,
-    96 /* input pixel stride */,
-    576 /* output pixel stride */,
-    (uint8_t) 130 /* input_zero_point */,
-    0.2735706567764282 /* input_scale */,
-    (uint8_t) 145 /* kernel_zero_point */,
-    0.0017236428102478385 /* kernel_scale */,
-    w215.data(), w216.data(),
-    (uint8_t) 118 /* output_zero_point */,
-    0.14194171130657196 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/96,
+    /*group_output_channels=*/576,
+    /*input_channel_stride=*/96,
+    /*output_channel_stride=*/576,
+    /*input_zero_point=*/(uint8_t) 130,
+    /*input_scale=*/0.2735706567764282,
+    /*kernel_zero_point=*/(uint8_t) 145,
+    /*kernel_scale=*/0.0017236428102478385,
+    /*kernel=*/w216.data(), /*bias=*/w217.data(),
+    /*output_zero_point=*/(uint8_t) 118,
+    /*output_scale=*/0.14194171130657196,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op86);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #86" << std::endl;
@@ -2409,27 +2416,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op88 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    2 /* top padding */, 2 /* right padding */,
-    2 /* bottom padding */, 2 /* left padding */,
-    5 /* kernel height */, 5 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    576 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    576 /* input pixel stride */,
-    576 /* output pixel stride */,
-    (uint8_t) 5 /* input_zero_point */,
-    0.07257640361785889 /* input_scale */,
-    (uint8_t) 96 /* kernel_zero_point */,
-    0.174177348613739 /* kernel_scale */,
-    w217.data(), w218.data(),
-    (uint8_t) 104 /* output_zero_point */,
-    0.23463939130306244 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/2, /*input_padding_right=*/2,
+    /*input_padding_bottom=*/2, /*input_padding_left=*/2,
+    /*kernel_height=*/5, /*kernel_width=*/5,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/576,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/576,
+    /*output_channel_stride=*/576,
+    /*input_zero_point=*/(uint8_t) 5,
+    /*input_scale=*/0.07257640361785889,
+    /*kernel_zero_point=*/(uint8_t) 96,
+    /*kernel_scale=*/0.174177348613739,
+    /*kernel=*/w218.data(), /*bias=*/w219.data(),
+    /*output_zero_point=*/(uint8_t) 104,
+    /*output_scale=*/0.23463939130306244,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op88);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #88" << std::endl;
@@ -2466,27 +2473,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op91 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    576 /* input channels per group */,
-    144 /* output_channels_per_group */,
-    576 /* input pixel stride */,
-    144 /* output pixel stride */,
-    (uint8_t) 3 /* input_zero_point */,
-    0.1241951510310173 /* input_scale */,
-    (uint8_t) 115 /* kernel_zero_point */,
-    0.005609261337667704 /* kernel_scale */,
-    w219.data(), w220.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.014928853139281273 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/576,
+    /*group_output_channels=*/144,
+    /*input_channel_stride=*/576,
+    /*output_channel_stride=*/144,
+    /*input_zero_point=*/(uint8_t) 3,
+    /*input_scale=*/0.1241951510310173,
+    /*kernel_zero_point=*/(uint8_t) 115,
+    /*kernel_scale=*/0.005609261337667704,
+    /*kernel=*/w220.data(), /*bias=*/w221.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.014928853139281273,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op91);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #91" << std::endl;
@@ -2496,27 +2503,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op92 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    144 /* input channels per group */,
-    576 /* output_channels_per_group */,
-    144 /* input pixel stride */,
-    576 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.014928853139281273 /* input_scale */,
-    (uint8_t) 91 /* kernel_zero_point */,
-    0.008804556913673878 /* kernel_scale */,
-    w221.data(), w222.data(),
-    (uint8_t) 129 /* output_zero_point */,
-    0.04489157348871231 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/144,
+    /*group_output_channels=*/576,
+    /*input_channel_stride=*/144,
+    /*output_channel_stride=*/576,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.014928853139281273,
+    /*kernel_zero_point=*/(uint8_t) 91,
+    /*kernel_scale=*/0.008804556913673878,
+    /*kernel=*/w222.data(), /*bias=*/w223.data(),
+    /*output_zero_point=*/(uint8_t) 129,
+    /*output_scale=*/0.04489157348871231,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op92);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #92" << std::endl;
@@ -2568,27 +2575,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op96 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    576 /* input channels per group */,
-    96 /* output_channels_per_group */,
-    576 /* input pixel stride */,
-    96 /* output pixel stride */,
-    (uint8_t) 15 /* input_zero_point */,
-    0.023340530693531036 /* input_scale */,
-    (uint8_t) 132 /* kernel_zero_point */,
-    0.11193376779556274 /* kernel_scale */,
-    w225.data(), w226.data(),
-    (uint8_t) 131 /* output_zero_point */,
-    0.3130902945995331 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/576,
+    /*group_output_channels=*/96,
+    /*input_channel_stride=*/576,
+    /*output_channel_stride=*/96,
+    /*input_zero_point=*/(uint8_t) 15,
+    /*input_scale=*/0.023340530693531036,
+    /*kernel_zero_point=*/(uint8_t) 132,
+    /*kernel_scale=*/0.11193376779556274,
+    /*kernel=*/w226.data(), /*bias=*/w227.data(),
+    /*output_zero_point=*/(uint8_t) 131,
+    /*output_scale=*/0.3130902945995331,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op96);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #96" << std::endl;
@@ -2612,27 +2619,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op98 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    96 /* input channels per group */,
-    576 /* output_channels_per_group */,
-    96 /* input pixel stride */,
-    576 /* output pixel stride */,
-    (uint8_t) 130 /* input_zero_point */,
-    0.3734561800956726 /* input_scale */,
-    (uint8_t) 153 /* kernel_zero_point */,
-    0.0030694138258695602 /* kernel_scale */,
-    w227.data(), w228.data(),
-    (uint8_t) 157 /* output_zero_point */,
-    0.3907496929168701 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/96,
+    /*group_output_channels=*/576,
+    /*input_channel_stride=*/96,
+    /*output_channel_stride=*/576,
+    /*input_zero_point=*/(uint8_t) 130,
+    /*input_scale=*/0.3734561800956726,
+    /*kernel_zero_point=*/(uint8_t) 153,
+    /*kernel_scale=*/0.0030694138258695602,
+    /*kernel=*/w228.data(), /*bias=*/w229.data(),
+    /*output_zero_point=*/(uint8_t) 157,
+    /*output_scale=*/0.3907496929168701,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op98);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #98" << std::endl;
@@ -2655,27 +2662,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op100 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    2 /* top padding */, 2 /* right padding */,
-    2 /* bottom padding */, 2 /* left padding */,
-    5 /* kernel height */, 5 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    576 /* groups */,
-    1 /* input channels per group */,
-    1 /* output_channels_per_group */,
-    576 /* input pixel stride */,
-    576 /* output pixel stride */,
-    (uint8_t) 3 /* input_zero_point */,
-    0.1398279368877411 /* input_scale */,
-    (uint8_t) 218 /* kernel_zero_point */,
-    2.1697041988372803 /* kernel_scale */,
-    w229.data(), w230.data(),
-    (uint8_t) 110 /* output_zero_point */,
-    0.6755003929138184 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/2, /*input_padding_right=*/2,
+    /*input_padding_bottom=*/2, /*input_padding_left=*/2,
+    /*kernel_height=*/5, /*kernel_width=*/5,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/576,
+    /*group_input_channels=*/1,
+    /*group_output_channels=*/1,
+    /*input_channel_stride=*/576,
+    /*output_channel_stride=*/576,
+    /*input_zero_point=*/(uint8_t) 3,
+    /*input_scale=*/0.1398279368877411,
+    /*kernel_zero_point=*/(uint8_t) 218,
+    /*kernel_scale=*/2.1697041988372803,
+    /*kernel=*/w230.data(), /*bias=*/w231.data(),
+    /*output_zero_point=*/(uint8_t) 110,
+    /*output_scale=*/0.6755003929138184,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op100);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #100" << std::endl;
@@ -2712,27 +2719,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op103 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    576 /* input channels per group */,
-    144 /* output_channels_per_group */,
-    576 /* input pixel stride */,
-    144 /* output pixel stride */,
-    (uint8_t) 1 /* input_zero_point */,
-    0.3347671329975128 /* input_scale */,
-    (uint8_t) 96 /* kernel_zero_point */,
-    0.006274337414652109 /* kernel_scale */,
-    w231.data(), w232.data(),
-    (uint8_t) 0 /* output_zero_point */,
-    0.04336833581328392 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/576,
+    /*group_output_channels=*/144,
+    /*input_channel_stride=*/576,
+    /*output_channel_stride=*/144,
+    /*input_zero_point=*/(uint8_t) 1,
+    /*input_scale=*/0.3347671329975128,
+    /*kernel_zero_point=*/(uint8_t) 96,
+    /*kernel_scale=*/0.006274337414652109,
+    /*kernel=*/w232.data(), /*bias=*/w233.data(),
+    /*output_zero_point=*/(uint8_t) 0,
+    /*output_scale=*/0.04336833581328392,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op103);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #103" << std::endl;
@@ -2742,27 +2749,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op104 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    144 /* input channels per group */,
-    576 /* output_channels_per_group */,
-    144 /* input pixel stride */,
-    576 /* output pixel stride */,
-    (uint8_t) 0 /* input_zero_point */,
-    0.04336833581328392 /* input_scale */,
-    (uint8_t) 91 /* kernel_zero_point */,
-    0.008546789176762104 /* kernel_scale */,
-    w233.data(), w234.data(),
-    (uint8_t) 115 /* output_zero_point */,
-    0.09501760452985764 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/144,
+    /*group_output_channels=*/576,
+    /*input_channel_stride=*/144,
+    /*output_channel_stride=*/576,
+    /*input_zero_point=*/(uint8_t) 0,
+    /*input_scale=*/0.04336833581328392,
+    /*kernel_zero_point=*/(uint8_t) 91,
+    /*kernel_scale=*/0.008546789176762104,
+    /*kernel=*/w234.data(), /*bias=*/w235.data(),
+    /*output_zero_point=*/(uint8_t) 115,
+    /*output_scale=*/0.09501760452985764,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op104);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #104" << std::endl;
@@ -2814,27 +2821,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op108 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    576 /* input channels per group */,
-    96 /* output_channels_per_group */,
-    576 /* input pixel stride */,
-    96 /* output pixel stride */,
-    (uint8_t) 2 /* input_zero_point */,
-    0.19521307945251465 /* input_scale */,
-    (uint8_t) 130 /* kernel_zero_point */,
-    0.02609884925186634 /* kernel_scale */,
-    w237.data(), w238.data(),
-    (uint8_t) 129 /* output_zero_point */,
-    0.7081664800643921 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/576,
+    /*group_output_channels=*/96,
+    /*input_channel_stride=*/576,
+    /*output_channel_stride=*/96,
+    /*input_zero_point=*/(uint8_t) 2,
+    /*input_scale=*/0.19521307945251465,
+    /*kernel_zero_point=*/(uint8_t) 130,
+    /*kernel_scale=*/0.02609884925186634,
+    /*kernel=*/w238.data(), /*bias=*/w239.data(),
+    /*output_zero_point=*/(uint8_t) 129,
+    /*output_scale=*/0.7081664800643921,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op108);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #108" << std::endl;
@@ -2858,27 +2865,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op110 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    96 /* input channels per group */,
-    576 /* output_channels_per_group */,
-    96 /* input pixel stride */,
-    576 /* output pixel stride */,
-    (uint8_t) 127 /* input_zero_point */,
-    0.808801531791687 /* input_scale */,
-    (uint8_t) 142 /* kernel_zero_point */,
-    0.003396135289222002 /* kernel_scale */,
-    w239.data(), w240.data(),
-    (uint8_t) 131 /* output_zero_point */,
-    0.9106870889663696 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/96,
+    /*group_output_channels=*/576,
+    /*input_channel_stride=*/96,
+    /*output_channel_stride=*/576,
+    /*input_zero_point=*/(uint8_t) 127,
+    /*input_scale=*/0.808801531791687,
+    /*kernel_zero_point=*/(uint8_t) 142,
+    /*kernel_scale=*/0.003396135289222002,
+    /*kernel=*/w240.data(), /*bias=*/w241.data(),
+    /*output_zero_point=*/(uint8_t) 131,
+    /*output_scale=*/0.9106870889663696,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op110);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #110" << std::endl;
@@ -2915,27 +2922,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op113 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    576 /* input channels per group */,
-    1024 /* output_channels_per_group */,
-    576 /* input pixel stride */,
-    1024 /* output pixel stride */,
-    (uint8_t) 1 /* input_zero_point */,
-    0.40212398767471313 /* input_scale */,
-    (uint8_t) 97 /* kernel_zero_point */,
-    0.006370874121785164 /* kernel_scale */,
-    w241.data(), w242.data(),
-    (uint8_t) 170 /* output_zero_point */,
-    0.05783478170633316 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/576,
+    /*group_output_channels=*/1024,
+    /*input_channel_stride=*/576,
+    /*output_channel_stride=*/1024,
+    /*input_zero_point=*/(uint8_t) 1,
+    /*input_scale=*/0.40212398767471313,
+    /*kernel_zero_point=*/(uint8_t) 97,
+    /*kernel_scale=*/0.006370874121785164,
+    /*kernel=*/w242.data(), /*bias=*/w243.data(),
+    /*output_zero_point=*/(uint8_t) 170,
+    /*output_scale=*/0.05783478170633316,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op113);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #113" << std::endl;
@@ -2972,27 +2979,27 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   xnn_operator_t op116 = nullptr;
   status = xnn_create_convolution2d_nhwc_qu8(
-    0 /* top padding */, 0 /* right padding */,
-    0 /* bottom padding */, 0 /* left padding */,
-    1 /* kernel height */, 1 /* kernel width */,
-    1 /* subsampling height */, 1 /* subsampling width */,
-    1 /* dilation_height */, 1 /* dilation_width */,
-    1 /* groups */,
-    1024 /* input channels per group */,
-    1001 /* output_channels_per_group */,
-    1024 /* input pixel stride */,
-    1001 /* output pixel stride */,
-    (uint8_t) 19 /* input_zero_point */,
-    0.01954001374542713 /* input_scale */,
-    (uint8_t) 113 /* kernel_zero_point */,
-    0.0029929860029369593 /* kernel_scale */,
-    w243.data(), w244.data(),
-    (uint8_t) 77 /* output_zero_point */,
-    0.07862140238285065 /* output_scale */,
-    (uint8_t) 0 /* output min */,  (uint8_t) 255 /* output max */,
-    0 /* flags */,
-    nullptr /* code_cache */,
-    nullptr /* weights_cache */,
+    /*input_padding_top=*/0, /*input_padding_right=*/0,
+    /*input_padding_bottom=*/0, /*input_padding_left=*/0,
+    /*kernel_height=*/1, /*kernel_width=*/1,
+    /*subsampling_height=*/1, /*subsampling_width=*/1,
+    /*dilation_height=*/1, /*dilation_width=*/1,
+    /*groups=*/1,
+    /*group_input_channels=*/1024,
+    /*group_output_channels=*/1001,
+    /*input_channel_stride=*/1024,
+    /*output_channel_stride=*/1001,
+    /*input_zero_point=*/(uint8_t) 19,
+    /*input_scale=*/0.01954001374542713,
+    /*kernel_zero_point=*/(uint8_t) 113,
+    /*kernel_scale=*/0.0029929860029369593,
+    /*kernel=*/w244.data(), /*bias=*/w245.data(),
+    /*output_zero_point=*/(uint8_t) 77,
+    /*output_scale=*/0.07862140238285065,
+    /*output_min=*/(uint8_t) 0, /*output_max=*/(uint8_t) 255,
+    /*flags=*/0,
+    /*code_cache=*/code_cache_ptr,
+    /*weights_cache=*/nullptr,
     &op116);
   if (status != xnn_status_success) {
     std::cerr << "failed to create operation #116" << std::endl;
@@ -3013,9 +3020,22 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
   }
   operators.emplace_back(op117, xnn_delete_operator);
 
+  xnn_operator_t op118 = nullptr;
+  status = xnn_create_softmax_nc_qu8(
+    /*channels=*/1001,
+    /*input_stride=*/1001,
+    /*output_stride=*/1001,
+    /*input_scale=*/0.07862140238285065,
+    /*output_zero_point=*/0,
+    /*output_scale=*/0.00390625,
+    /*flags=*/0,
+    &op118);
+  if (status != xnn_status_success) {
+    std::cerr << "failed to create operation #118" << std::endl;
+    return ExecutionPlan();
+  }
+  operators.emplace_back(op118, xnn_delete_operator);
 
-
-{
   size_t op0_workspace_size = 0;
   size_t op0_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3025,7 +3045,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op0_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #0" << std::endl;
     return ExecutionPlan();
@@ -3040,7 +3059,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op2_workspace_size = 0;
   size_t op2_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3050,7 +3068,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op2_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #2" << std::endl;
     return ExecutionPlan();
@@ -3069,7 +3086,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op4_workspace_size = 0;
   size_t op4_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3079,13 +3095,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op4_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #4" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op5_workspace_size = 0;
   size_t op5_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3095,7 +3109,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op5_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #5" << std::endl;
     return ExecutionPlan();
@@ -3140,7 +3153,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op9_workspace_size = 0;
   size_t op9_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3150,13 +3162,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op9_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #9" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op10_workspace_size = 0;
   size_t op10_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3166,13 +3176,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op10_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #10" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op11_workspace_size = 0;
   size_t op11_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3182,13 +3190,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op11_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #11" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op12_workspace_size = 0;
   size_t op12_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3198,13 +3204,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op12_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #12" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op13_workspace_size = 0;
   size_t op13_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3214,13 +3218,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op13_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #13" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op14_workspace_size = 0;
   size_t op14_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3230,13 +3232,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op14_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #14" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op15_workspace_size = 0;
   size_t op15_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3246,7 +3246,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op15_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #15" << std::endl;
     return ExecutionPlan();
@@ -3265,7 +3264,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op17_workspace_size = 0;
   size_t op17_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3275,7 +3273,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op17_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #17" << std::endl;
     return ExecutionPlan();
@@ -3290,7 +3287,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op19_workspace_size = 0;
   size_t op19_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3300,7 +3296,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op19_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #19" << std::endl;
     return ExecutionPlan();
@@ -3328,7 +3323,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op22_workspace_size = 0;
   size_t op22_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3338,13 +3332,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op22_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #22" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op23_workspace_size = 0;
   size_t op23_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3354,7 +3346,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op23_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #23" << std::endl;
     return ExecutionPlan();
@@ -3399,7 +3390,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op27_workspace_size = 0;
   size_t op27_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3409,13 +3399,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op27_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #27" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op28_workspace_size = 0;
   size_t op28_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3425,7 +3413,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op28_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #28" << std::endl;
     return ExecutionPlan();
@@ -3440,7 +3427,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op30_workspace_size = 0;
   size_t op30_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3450,7 +3436,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op30_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #30" << std::endl;
     return ExecutionPlan();
@@ -3478,7 +3463,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op33_workspace_size = 0;
   size_t op33_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3488,13 +3472,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op33_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #33" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op34_workspace_size = 0;
   size_t op34_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3504,7 +3486,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op34_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #34" << std::endl;
     return ExecutionPlan();
@@ -3549,7 +3530,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op38_workspace_size = 0;
   size_t op38_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3559,7 +3539,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op38_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #38" << std::endl;
     return ExecutionPlan();
@@ -3578,7 +3557,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op40_workspace_size = 0;
   size_t op40_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3588,7 +3566,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op40_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #40" << std::endl;
     return ExecutionPlan();
@@ -3603,7 +3580,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op42_workspace_size = 0;
   size_t op42_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3613,7 +3589,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op42_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #42" << std::endl;
     return ExecutionPlan();
@@ -3641,7 +3616,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op45_workspace_size = 0;
   size_t op45_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3651,13 +3625,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op45_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #45" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op46_workspace_size = 0;
   size_t op46_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3667,7 +3639,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op46_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #46" << std::endl;
     return ExecutionPlan();
@@ -3712,7 +3683,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op50_workspace_size = 0;
   size_t op50_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3722,7 +3692,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op50_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #50" << std::endl;
     return ExecutionPlan();
@@ -3741,7 +3710,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op52_workspace_size = 0;
   size_t op52_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3751,7 +3719,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op52_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #52" << std::endl;
     return ExecutionPlan();
@@ -3766,7 +3733,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op54_workspace_size = 0;
   size_t op54_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3776,7 +3742,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op54_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #54" << std::endl;
     return ExecutionPlan();
@@ -3804,7 +3769,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op57_workspace_size = 0;
   size_t op57_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3814,13 +3778,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op57_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #57" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op58_workspace_size = 0;
   size_t op58_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3830,7 +3792,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op58_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #58" << std::endl;
     return ExecutionPlan();
@@ -3875,7 +3836,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op62_workspace_size = 0;
   size_t op62_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3885,13 +3845,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op62_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #62" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op63_workspace_size = 0;
   size_t op63_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3901,7 +3859,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op63_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #63" << std::endl;
     return ExecutionPlan();
@@ -3916,7 +3873,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op65_workspace_size = 0;
   size_t op65_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3926,7 +3882,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op65_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #65" << std::endl;
     return ExecutionPlan();
@@ -3954,7 +3909,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op68_workspace_size = 0;
   size_t op68_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3964,13 +3918,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op68_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #68" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op69_workspace_size = 0;
   size_t op69_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -3980,7 +3932,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op69_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #69" << std::endl;
     return ExecutionPlan();
@@ -4025,7 +3976,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op73_workspace_size = 0;
   size_t op73_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4035,7 +3985,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op73_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #73" << std::endl;
     return ExecutionPlan();
@@ -4054,7 +4003,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op75_workspace_size = 0;
   size_t op75_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4064,7 +4012,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op75_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #75" << std::endl;
     return ExecutionPlan();
@@ -4079,7 +4026,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op77_workspace_size = 0;
   size_t op77_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4089,7 +4035,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op77_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #77" << std::endl;
     return ExecutionPlan();
@@ -4117,7 +4062,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op80_workspace_size = 0;
   size_t op80_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4127,13 +4071,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op80_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #80" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op81_workspace_size = 0;
   size_t op81_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4143,7 +4085,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op81_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #81" << std::endl;
     return ExecutionPlan();
@@ -4188,7 +4129,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op85_workspace_size = 0;
   size_t op85_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4198,13 +4138,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op85_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #85" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op86_workspace_size = 0;
   size_t op86_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4214,7 +4152,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op86_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #86" << std::endl;
     return ExecutionPlan();
@@ -4229,7 +4166,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op88_workspace_size = 0;
   size_t op88_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4239,7 +4175,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op88_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #88" << std::endl;
     return ExecutionPlan();
@@ -4267,7 +4202,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op91_workspace_size = 0;
   size_t op91_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4277,13 +4211,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op91_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #91" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op92_workspace_size = 0;
   size_t op92_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4293,7 +4225,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op92_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #92" << std::endl;
     return ExecutionPlan();
@@ -4338,7 +4269,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op96_workspace_size = 0;
   size_t op96_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4348,7 +4278,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op96_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #96" << std::endl;
     return ExecutionPlan();
@@ -4367,7 +4296,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op98_workspace_size = 0;
   size_t op98_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4377,7 +4305,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op98_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #98" << std::endl;
     return ExecutionPlan();
@@ -4392,7 +4319,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op100_workspace_size = 0;
   size_t op100_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4402,7 +4328,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op100_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #100" << std::endl;
     return ExecutionPlan();
@@ -4430,7 +4355,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op103_workspace_size = 0;
   size_t op103_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4440,13 +4364,11 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op103_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #103" << std::endl;
     return ExecutionPlan();
   }
 
-{
   size_t op104_workspace_size = 0;
   size_t op104_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4456,7 +4378,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op104_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #104" << std::endl;
     return ExecutionPlan();
@@ -4501,7 +4422,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op108_workspace_size = 0;
   size_t op108_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4511,7 +4431,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op108_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #108" << std::endl;
     return ExecutionPlan();
@@ -4530,7 +4449,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op110_workspace_size = 0;
   size_t op110_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4540,7 +4458,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op110_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #110" << std::endl;
     return ExecutionPlan();
@@ -4568,7 +4485,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op113_workspace_size = 0;
   size_t op113_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4578,7 +4494,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op113_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #113" << std::endl;
     return ExecutionPlan();
@@ -4606,7 +4521,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-{
   size_t op116_workspace_size = 0;
   size_t op116_workspace_alignment = 0;
   status = xnn_reshape_convolution2d_nhwc_qu8(
@@ -4616,7 +4530,6 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     /*output_height_out=*/nullptr, /*output_width_out=*/nullptr,
     /*threadpool=*/threadpool);
   max_workspace_size = std::max(max_workspace_size, op116_workspace_size);
-}
   if (status != xnn_status_success) {
     std::cerr << "failed to reshape operation #116" << std::endl;
     return ExecutionPlan();
@@ -4631,13 +4544,20 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-
+  status = xnn_reshape_softmax_nc_qu8(
+    op118,
+    /*batch_size=*/1,
+    /*threadpool=*/threadpool);
+  if (status != xnn_status_success) {
+    std::cerr << "failed to reshape operation #118" << std::endl;
+    return ExecutionPlan();
+  }
 
   Workspace workspace(max_workspace_size);
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op0,
-    /*workspace=*/ nullptr, /*input=*/v0.data(), /*output=*/v1.data());
+    workspace.data(), /*input=*/v0.data(), /*output=*/v1.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #0" << std::endl;
     return ExecutionPlan();
@@ -4653,7 +4573,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op2,
-    /*workspace=*/ nullptr, /*input=*/v2.data(), /*output=*/v3.data());
+    workspace.data(), /*input=*/v2.data(), /*output=*/v3.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #2" << std::endl;
     return ExecutionPlan();
@@ -4670,7 +4590,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op4,
-    /*workspace=*/ nullptr, /*input=*/v4.data(), /*output=*/v5.data());
+    workspace.data(), /*input=*/v4.data(), /*output=*/v5.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #4" << std::endl;
     return ExecutionPlan();
@@ -4678,7 +4598,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op5,
-    /*workspace=*/ nullptr, /*input=*/v5.data(), /*output=*/v6.data());
+    workspace.data(), /*input=*/v5.data(), /*output=*/v6.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #5" << std::endl;
     return ExecutionPlan();
@@ -4686,7 +4606,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_add_nd_qu8(
     op6,
-    v6.data() /* a */, w127.data() /* b */, /*output=*/v7.data());
+    v6.data() /* a */, w128.data() /* b */, /*output=*/v7.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #6" << std::endl;
     return ExecutionPlan();
@@ -4694,7 +4614,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_multiply_nd_qu8(
     op7,
-    v7.data() /* a */, w128.data() /* b */, /*output=*/v8.data());
+    v7.data() /* a */, w129.data() /* b */, /*output=*/v8.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #7" << std::endl;
     return ExecutionPlan();
@@ -4710,7 +4630,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op9,
-    /*workspace=*/ nullptr, /*input=*/v9.data(), /*output=*/v10.data());
+    workspace.data(), /*input=*/v9.data(), /*output=*/v10.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #9" << std::endl;
     return ExecutionPlan();
@@ -4718,7 +4638,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op10,
-    /*workspace=*/ nullptr, /*input=*/v10.data(), /*output=*/v11.data());
+    workspace.data(), /*input=*/v10.data(), /*output=*/v11.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #10" << std::endl;
     return ExecutionPlan();
@@ -4726,7 +4646,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op11,
-    /*workspace=*/ nullptr, /*input=*/v11.data(), /*output=*/v12.data());
+    workspace.data(), /*input=*/v11.data(), /*output=*/v12.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #11" << std::endl;
     return ExecutionPlan();
@@ -4734,7 +4654,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op12,
-    /*workspace=*/ nullptr, /*input=*/v12.data(), /*output=*/v13.data());
+    workspace.data(), /*input=*/v12.data(), /*output=*/v13.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #12" << std::endl;
     return ExecutionPlan();
@@ -4742,7 +4662,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op13,
-    /*workspace=*/ nullptr, /*input=*/v13.data(), /*output=*/v14.data());
+    workspace.data(), /*input=*/v13.data(), /*output=*/v14.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #13" << std::endl;
     return ExecutionPlan();
@@ -4750,7 +4670,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op14,
-    /*workspace=*/ nullptr, /*input=*/v14.data(), /*output=*/v15.data());
+    workspace.data(), /*input=*/v14.data(), /*output=*/v15.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #14" << std::endl;
     return ExecutionPlan();
@@ -4758,7 +4678,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op15,
-    /*workspace=*/ nullptr, /*input=*/v15.data(), /*output=*/v16.data());
+    workspace.data(), /*input=*/v15.data(), /*output=*/v16.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #15" << std::endl;
     return ExecutionPlan();
@@ -4774,7 +4694,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op17,
-    /*workspace=*/ nullptr, /*input=*/v17.data(), /*output=*/v18.data());
+    workspace.data(), /*input=*/v17.data(), /*output=*/v18.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #17" << std::endl;
     return ExecutionPlan();
@@ -4790,7 +4710,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op19,
-    /*workspace=*/ nullptr, /*input=*/v19.data(), /*output=*/v20.data());
+    workspace.data(), /*input=*/v19.data(), /*output=*/v20.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #19" << std::endl;
     return ExecutionPlan();
@@ -4815,7 +4735,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op22,
-    /*workspace=*/ nullptr, /*input=*/v22.data(), /*output=*/v23.data());
+    workspace.data(), /*input=*/v22.data(), /*output=*/v23.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #22" << std::endl;
     return ExecutionPlan();
@@ -4823,7 +4743,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op23,
-    /*workspace=*/ nullptr, /*input=*/v23.data(), /*output=*/v24.data());
+    workspace.data(), /*input=*/v23.data(), /*output=*/v24.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #23" << std::endl;
     return ExecutionPlan();
@@ -4831,7 +4751,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_add_nd_qu8(
     op24,
-    v24.data() /* a */, w151.data() /* b */, /*output=*/v25.data());
+    v24.data() /* a */, w152.data() /* b */, /*output=*/v25.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #24" << std::endl;
     return ExecutionPlan();
@@ -4839,7 +4759,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_multiply_nd_qu8(
     op25,
-    v25.data() /* a */, w152.data() /* b */, /*output=*/v26.data());
+    v25.data() /* a */, w153.data() /* b */, /*output=*/v26.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #25" << std::endl;
     return ExecutionPlan();
@@ -4855,7 +4775,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op27,
-    /*workspace=*/ nullptr, /*input=*/v27.data(), /*output=*/v28.data());
+    workspace.data(), /*input=*/v27.data(), /*output=*/v28.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #27" << std::endl;
     return ExecutionPlan();
@@ -4863,7 +4783,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op28,
-    /*workspace=*/ nullptr, /*input=*/v28.data(), /*output=*/v29.data());
+    workspace.data(), /*input=*/v28.data(), /*output=*/v29.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #28" << std::endl;
     return ExecutionPlan();
@@ -4879,7 +4799,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op30,
-    /*workspace=*/ nullptr, /*input=*/v30.data(), /*output=*/v31.data());
+    workspace.data(), /*input=*/v30.data(), /*output=*/v31.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #30" << std::endl;
     return ExecutionPlan();
@@ -4904,7 +4824,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op33,
-    /*workspace=*/ nullptr, /*input=*/v33.data(), /*output=*/v34.data());
+    workspace.data(), /*input=*/v33.data(), /*output=*/v34.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #33" << std::endl;
     return ExecutionPlan();
@@ -4912,7 +4832,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op34,
-    /*workspace=*/ nullptr, /*input=*/v34.data(), /*output=*/v35.data());
+    workspace.data(), /*input=*/v34.data(), /*output=*/v35.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #34" << std::endl;
     return ExecutionPlan();
@@ -4920,7 +4840,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_add_nd_qu8(
     op35,
-    v35.data() /* a */, w163.data() /* b */, /*output=*/v36.data());
+    v35.data() /* a */, w164.data() /* b */, /*output=*/v36.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #35" << std::endl;
     return ExecutionPlan();
@@ -4928,7 +4848,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_multiply_nd_qu8(
     op36,
-    v36.data() /* a */, w164.data() /* b */, /*output=*/v37.data());
+    v36.data() /* a */, w165.data() /* b */, /*output=*/v37.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #36" << std::endl;
     return ExecutionPlan();
@@ -4944,7 +4864,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op38,
-    /*workspace=*/ nullptr, /*input=*/v38.data(), /*output=*/v39.data());
+    workspace.data(), /*input=*/v38.data(), /*output=*/v39.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #38" << std::endl;
     return ExecutionPlan();
@@ -4960,7 +4880,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op40,
-    /*workspace=*/ nullptr, /*input=*/v40.data(), /*output=*/v41.data());
+    workspace.data(), /*input=*/v40.data(), /*output=*/v41.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #40" << std::endl;
     return ExecutionPlan();
@@ -4976,7 +4896,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op42,
-    /*workspace=*/ nullptr, /*input=*/v42.data(), /*output=*/v43.data());
+    workspace.data(), /*input=*/v42.data(), /*output=*/v43.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #42" << std::endl;
     return ExecutionPlan();
@@ -5001,7 +4921,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op45,
-    /*workspace=*/ nullptr, /*input=*/v45.data(), /*output=*/v46.data());
+    workspace.data(), /*input=*/v45.data(), /*output=*/v46.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #45" << std::endl;
     return ExecutionPlan();
@@ -5009,7 +4929,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op46,
-    /*workspace=*/ nullptr, /*input=*/v46.data(), /*output=*/v47.data());
+    workspace.data(), /*input=*/v46.data(), /*output=*/v47.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #46" << std::endl;
     return ExecutionPlan();
@@ -5017,7 +4937,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_add_nd_qu8(
     op47,
-    v47.data() /* a */, w175.data() /* b */, /*output=*/v48.data());
+    v47.data() /* a */, w176.data() /* b */, /*output=*/v48.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #47" << std::endl;
     return ExecutionPlan();
@@ -5025,7 +4945,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_multiply_nd_qu8(
     op48,
-    v48.data() /* a */, w176.data() /* b */, /*output=*/v49.data());
+    v48.data() /* a */, w177.data() /* b */, /*output=*/v49.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #48" << std::endl;
     return ExecutionPlan();
@@ -5041,7 +4961,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op50,
-    /*workspace=*/ nullptr, /*input=*/v50.data(), /*output=*/v51.data());
+    workspace.data(), /*input=*/v50.data(), /*output=*/v51.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #50" << std::endl;
     return ExecutionPlan();
@@ -5057,7 +4977,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op52,
-    /*workspace=*/ nullptr, /*input=*/v52.data(), /*output=*/v53.data());
+    workspace.data(), /*input=*/v52.data(), /*output=*/v53.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #52" << std::endl;
     return ExecutionPlan();
@@ -5073,7 +4993,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op54,
-    /*workspace=*/ nullptr, /*input=*/v54.data(), /*output=*/v55.data());
+    workspace.data(), /*input=*/v54.data(), /*output=*/v55.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #54" << std::endl;
     return ExecutionPlan();
@@ -5098,7 +5018,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op57,
-    /*workspace=*/ nullptr, /*input=*/v57.data(), /*output=*/v58.data());
+    workspace.data(), /*input=*/v57.data(), /*output=*/v58.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #57" << std::endl;
     return ExecutionPlan();
@@ -5106,7 +5026,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op58,
-    /*workspace=*/ nullptr, /*input=*/v58.data(), /*output=*/v59.data());
+    workspace.data(), /*input=*/v58.data(), /*output=*/v59.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #58" << std::endl;
     return ExecutionPlan();
@@ -5114,7 +5034,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_add_nd_qu8(
     op59,
-    v59.data() /* a */, w187.data() /* b */, /*output=*/v60.data());
+    v59.data() /* a */, w188.data() /* b */, /*output=*/v60.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #59" << std::endl;
     return ExecutionPlan();
@@ -5122,7 +5042,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_multiply_nd_qu8(
     op60,
-    v60.data() /* a */, w188.data() /* b */, /*output=*/v61.data());
+    v60.data() /* a */, w189.data() /* b */, /*output=*/v61.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #60" << std::endl;
     return ExecutionPlan();
@@ -5138,7 +5058,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op62,
-    /*workspace=*/ nullptr, /*input=*/v62.data(), /*output=*/v63.data());
+    workspace.data(), /*input=*/v62.data(), /*output=*/v63.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #62" << std::endl;
     return ExecutionPlan();
@@ -5146,7 +5066,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op63,
-    /*workspace=*/ nullptr, /*input=*/v63.data(), /*output=*/v64.data());
+    workspace.data(), /*input=*/v63.data(), /*output=*/v64.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #63" << std::endl;
     return ExecutionPlan();
@@ -5162,7 +5082,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op65,
-    /*workspace=*/ nullptr, /*input=*/v65.data(), /*output=*/v66.data());
+    workspace.data(), /*input=*/v65.data(), /*output=*/v66.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #65" << std::endl;
     return ExecutionPlan();
@@ -5187,7 +5107,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op68,
-    /*workspace=*/ nullptr, /*input=*/v68.data(), /*output=*/v69.data());
+    workspace.data(), /*input=*/v68.data(), /*output=*/v69.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #68" << std::endl;
     return ExecutionPlan();
@@ -5195,7 +5115,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op69,
-    /*workspace=*/ nullptr, /*input=*/v69.data(), /*output=*/v70.data());
+    workspace.data(), /*input=*/v69.data(), /*output=*/v70.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #69" << std::endl;
     return ExecutionPlan();
@@ -5203,7 +5123,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_add_nd_qu8(
     op70,
-    v70.data() /* a */, w199.data() /* b */, /*output=*/v71.data());
+    v70.data() /* a */, w200.data() /* b */, /*output=*/v71.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #70" << std::endl;
     return ExecutionPlan();
@@ -5211,7 +5131,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_multiply_nd_qu8(
     op71,
-    v71.data() /* a */, w200.data() /* b */, /*output=*/v72.data());
+    v71.data() /* a */, w201.data() /* b */, /*output=*/v72.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #71" << std::endl;
     return ExecutionPlan();
@@ -5227,7 +5147,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op73,
-    /*workspace=*/ nullptr, /*input=*/v73.data(), /*output=*/v74.data());
+    workspace.data(), /*input=*/v73.data(), /*output=*/v74.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #73" << std::endl;
     return ExecutionPlan();
@@ -5243,7 +5163,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op75,
-    /*workspace=*/ nullptr, /*input=*/v75.data(), /*output=*/v76.data());
+    workspace.data(), /*input=*/v75.data(), /*output=*/v76.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #75" << std::endl;
     return ExecutionPlan();
@@ -5259,7 +5179,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op77,
-    /*workspace=*/ nullptr, /*input=*/v77.data(), /*output=*/v78.data());
+    workspace.data(), /*input=*/v77.data(), /*output=*/v78.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #77" << std::endl;
     return ExecutionPlan();
@@ -5284,7 +5204,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op80,
-    /*workspace=*/ nullptr, /*input=*/v80.data(), /*output=*/v81.data());
+    workspace.data(), /*input=*/v80.data(), /*output=*/v81.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #80" << std::endl;
     return ExecutionPlan();
@@ -5292,7 +5212,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op81,
-    /*workspace=*/ nullptr, /*input=*/v81.data(), /*output=*/v82.data());
+    workspace.data(), /*input=*/v81.data(), /*output=*/v82.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #81" << std::endl;
     return ExecutionPlan();
@@ -5300,7 +5220,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_add_nd_qu8(
     op82,
-    v82.data() /* a */, w211.data() /* b */, /*output=*/v83.data());
+    v82.data() /* a */, w212.data() /* b */, /*output=*/v83.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #82" << std::endl;
     return ExecutionPlan();
@@ -5308,7 +5228,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_multiply_nd_qu8(
     op83,
-    v83.data() /* a */, w212.data() /* b */, /*output=*/v84.data());
+    v83.data() /* a */, w213.data() /* b */, /*output=*/v84.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #83" << std::endl;
     return ExecutionPlan();
@@ -5324,7 +5244,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op85,
-    /*workspace=*/ nullptr, /*input=*/v85.data(), /*output=*/v86.data());
+    workspace.data(), /*input=*/v85.data(), /*output=*/v86.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #85" << std::endl;
     return ExecutionPlan();
@@ -5332,7 +5252,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op86,
-    /*workspace=*/ nullptr, /*input=*/v86.data(), /*output=*/v87.data());
+    workspace.data(), /*input=*/v86.data(), /*output=*/v87.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #86" << std::endl;
     return ExecutionPlan();
@@ -5348,7 +5268,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op88,
-    /*workspace=*/ nullptr, /*input=*/v88.data(), /*output=*/v89.data());
+    workspace.data(), /*input=*/v88.data(), /*output=*/v89.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #88" << std::endl;
     return ExecutionPlan();
@@ -5373,7 +5293,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op91,
-    /*workspace=*/ nullptr, /*input=*/v91.data(), /*output=*/v92.data());
+    workspace.data(), /*input=*/v91.data(), /*output=*/v92.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #91" << std::endl;
     return ExecutionPlan();
@@ -5381,7 +5301,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op92,
-    /*workspace=*/ nullptr, /*input=*/v92.data(), /*output=*/v93.data());
+    workspace.data(), /*input=*/v92.data(), /*output=*/v93.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #92" << std::endl;
     return ExecutionPlan();
@@ -5389,7 +5309,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_add_nd_qu8(
     op93,
-    v93.data() /* a */, w223.data() /* b */, /*output=*/v94.data());
+    v93.data() /* a */, w224.data() /* b */, /*output=*/v94.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #93" << std::endl;
     return ExecutionPlan();
@@ -5397,7 +5317,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_multiply_nd_qu8(
     op94,
-    v94.data() /* a */, w224.data() /* b */, /*output=*/v95.data());
+    v94.data() /* a */, w225.data() /* b */, /*output=*/v95.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #94" << std::endl;
     return ExecutionPlan();
@@ -5413,7 +5333,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op96,
-    /*workspace=*/ nullptr, /*input=*/v96.data(), /*output=*/v97.data());
+    workspace.data(), /*input=*/v96.data(), /*output=*/v97.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #96" << std::endl;
     return ExecutionPlan();
@@ -5429,7 +5349,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op98,
-    /*workspace=*/ nullptr, /*input=*/v98.data(), /*output=*/v99.data());
+    workspace.data(), /*input=*/v98.data(), /*output=*/v99.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #98" << std::endl;
     return ExecutionPlan();
@@ -5445,7 +5365,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op100,
-    /*workspace=*/ nullptr, /*input=*/v100.data(), /*output=*/v101.data());
+    workspace.data(), /*input=*/v100.data(), /*output=*/v101.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #100" << std::endl;
     return ExecutionPlan();
@@ -5470,7 +5390,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op103,
-    /*workspace=*/ nullptr, /*input=*/v103.data(), /*output=*/v104.data());
+    workspace.data(), /*input=*/v103.data(), /*output=*/v104.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #103" << std::endl;
     return ExecutionPlan();
@@ -5478,7 +5398,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op104,
-    /*workspace=*/ nullptr, /*input=*/v104.data(), /*output=*/v105.data());
+    workspace.data(), /*input=*/v104.data(), /*output=*/v105.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #104" << std::endl;
     return ExecutionPlan();
@@ -5486,7 +5406,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_add_nd_qu8(
     op105,
-    v105.data() /* a */, w235.data() /* b */, /*output=*/v106.data());
+    v105.data() /* a */, w236.data() /* b */, /*output=*/v106.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #105" << std::endl;
     return ExecutionPlan();
@@ -5494,7 +5414,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_multiply_nd_qu8(
     op106,
-    v106.data() /* a */, w236.data() /* b */, /*output=*/v107.data());
+    v106.data() /* a */, w237.data() /* b */, /*output=*/v107.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #106" << std::endl;
     return ExecutionPlan();
@@ -5510,7 +5430,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op108,
-    /*workspace=*/ nullptr, /*input=*/v108.data(), /*output=*/v109.data());
+    workspace.data(), /*input=*/v108.data(), /*output=*/v109.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #108" << std::endl;
     return ExecutionPlan();
@@ -5526,7 +5446,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op110,
-    /*workspace=*/ nullptr, /*input=*/v110.data(), /*output=*/v111.data());
+    workspace.data(), /*input=*/v110.data(), /*output=*/v111.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #110" << std::endl;
     return ExecutionPlan();
@@ -5551,7 +5471,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op113,
-    /*workspace=*/ nullptr, /*input=*/v113.data(), /*output=*/v114.data());
+    workspace.data(), /*input=*/v113.data(), /*output=*/v114.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #113" << std::endl;
     return ExecutionPlan();
@@ -5576,7 +5496,7 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
 
   status = xnn_setup_convolution2d_nhwc_qu8(
     op116,
-    /*workspace=*/ nullptr, /*input=*/v116.data(), /*output=*/v117.data());
+    workspace.data(), /*input=*/v116.data(), /*output=*/v117.data());
   if (status != xnn_status_success) {
     std::cerr << "failed to setup operation #116" << std::endl;
     return ExecutionPlan();
@@ -5590,10 +5510,18 @@ ExecutionPlan QU8MobileNetV3Small(pthreadpool_t threadpool) {
     return ExecutionPlan();
   }
 
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wpessimizing-move"
+  status = xnn_setup_softmax_nc_qu8(
+    op118,
+    /*input=*/v118.data(), /*output=*/v119.data());
+  if (status != xnn_status_success) {
+    std::cerr << "failed to setup operation #118" << std::endl;
+    return ExecutionPlan();
+  }
+
+  XNN_PRAGMA_CLANG("clang diagnostic push")
+  XNN_PRAGMA_CLANG("clang diagnostic ignored \"-Wpessimizing-move\"")
   return ExecutionPlan{operators, workspace};
-  #pragma clang diagnostic pop
+  XNN_PRAGMA_CLANG("clang diagnostic pop")
 }
 
 }  // namespace models
